@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -14,7 +12,6 @@ namespace XtrmCoachRESTServer.Controllers
         // GET: api/User
         public ArrayList Get()
         {
-            //return new string[] { "value1", "value2" };
             UserPersistence userPersistance = new UserPersistence();
             return userPersistance.getUser();
         }
@@ -22,7 +19,6 @@ namespace XtrmCoachRESTServer.Controllers
         // GET: api/User/5
         public User Get(long id)
         {
-            //return "value";
             UserPersistence userPersistance = new UserPersistence();
             return userPersistance.getUser(id);
         }
