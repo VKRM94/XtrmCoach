@@ -12,6 +12,8 @@ namespace XtrmCoachRESTServer.Controllers
         // GET: api/User
         public ArrayList Get()
         {
+            // just testing push and pull
+            // i will remove this line later
             UserPersistence userPersistance = new UserPersistence();
             return userPersistance.getUser();
         }
