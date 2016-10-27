@@ -81,13 +81,15 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\main.js" />
+    <Content Include="app\Controller\homeController.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app\Service\" />
+    <Folder Include="app\Views\" />
     <Folder Include="Scripts\i18n\" />
   </ItemGroup>
   <PropertyGroup>

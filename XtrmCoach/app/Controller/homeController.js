@@ -2,9 +2,9 @@
     'use strict';
     angular
         .module('app')
-        .controller('Main', main);
+        .controller('homeController', homeController);
 
-    function main($scope, $http) {
+    function homeController($scope, $http) {
         $http.get('http://localhost:65335/api/User').then(function (response) {
             $scope.users = response.data;
         });

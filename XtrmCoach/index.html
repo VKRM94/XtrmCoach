@@ -1,15 +1,18 @@
 ﻿<!DOCTYPE html>
 <html ng-app="app">
+
 <head>
     <title></title>
 	<meta charset="utf-8" />
     <script src="Scripts/angular.min.js"></script>
     <script src="app/app.module.js"></script>
-    <script src="app/main.js"></script>
+    <script src="app/controller/homeController.js"></script>
 </head>
-<body ng-controller="Main">
+
+<body ng-controller="homeController">
     <h1>XtrmCoach App Demo</h1>
     <h3>Team Members: </h3>
     <h3 ng-repeat="user in users">{{user.Name}}</h3>
 </body>
+
 </html>
