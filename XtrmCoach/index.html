@@ -1,18 +1,20 @@
 ﻿<!DOCTYPE html>
-<html ng-app="app">
+<html>
 
 <head>
     <title></title>
 	<meta charset="utf-8" />
     <script src="Scripts/angular.min.js"></script>
+	<script src="Scripts/angular-route.min.js"></script>
+	<script src="Scripts/angular-cookies.min.js"></script>
     <script src="app/app.module.js"></script>
     <script src="app/controller/homeController.js"></script>
+	<script src="app/controller/signupController.js"></script>
+	<script src="app/controller/dashboardController.js"></script>
 </head>
 
-<body ng-controller="homeController">
-    <h1>XtrmCoach App Demo</h1>
-    <h3>Team Members: </h3>
-    <h3 ng-repeat="user in users">{{user.Name}}</h3>
+<body ng-app="app">
+	<div ng-view></div>
 </body>
 
 </html>

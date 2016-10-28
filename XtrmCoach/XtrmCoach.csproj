@@ -66,13 +66,25 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\controller\signupController.js" />
+    <Content Include="app\controller\dashboardController.js" />
+    <Content Include="app\service\loginService.js" />
+    <Content Include="app\views\signup.html" />
+    <Content Include="app\views\dashboard.html" />
+    <Content Include="app\views\home.html" />
     <Content Include="index.html" />
     <Content Include="packages.config" />
+    <Content Include="Scripts\angular-cookies.js" />
+    <Content Include="Scripts\angular-cookies.min.js" />
     <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\angular-route.js" />
+    <Content Include="Scripts\angular-route.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="app\app.module.js" />
+    <Content Include="Scripts\angular-route.min.js.map" />
+    <Content Include="Scripts\angular-cookies.min.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -81,15 +93,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\Controller\homeController.js" />
+    <Content Include="app\controller\homeController.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="app\Service\" />
-    <Folder Include="app\Views\" />
     <Folder Include="Scripts\i18n\" />
   </ItemGroup>
   <PropertyGroup>
