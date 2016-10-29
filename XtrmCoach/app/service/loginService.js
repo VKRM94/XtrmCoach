@@ -1,15 +1,26 @@
 ﻿(function () {
 	'use strict';
-	angular
-		.module('app')
-		.service('loginService', loginService);
+	angular.module('app')
+	.service('loginService', ['$http', function ($http) {
+		this.authenticateCredentials = function (username, password, callback) {
+			var user = {
+				'emailId': username,
+				'password': password
+			};
 
-	function loginService($scope, $location, $rootScope, $https) {
-		$scope.login = function (username, password, callback) {
-			/*$http.get('http://localhost:65335/api/User').then(function (response) {
-				$scope.users = response.data;
+			var config = {
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			};
+
+			$http.post('http://localhost:65335/api/Login/', user, config)
+			.success(function (data, status) {
+				callback(data);
+			})
+			.error(function (data, status) {
 				callback();
-			});*/
+			});
 		};
-	}
+	}]);
 })();

@@ -69,6 +69,7 @@
     <Content Include="app\controller\signupController.js" />
     <Content Include="app\controller\dashboardController.js" />
     <Content Include="app\service\loginService.js" />
+    <Content Include="app\service\signupService.js" />
     <Content Include="app\views\signup.html" />
     <Content Include="app\views\dashboard.html" />
     <Content Include="app\views\home.html" />

@@ -2,12 +2,15 @@
 	'use strict';
 	angular
 		.module('app')
-		.controller('signupController', signupController);
-
-	function signupController($scope, $location, $rootScope, $cookieStore) {
-		$scope.signup = function () {
-			// If Signup successful
-			$location.path('/');
-		};
-	}
+		.controller('signupController', ['$scope', '$location', '$rootScope', '$cookieStore', 'signupService', function signupController($scope, $location, $rootScope, $cookieStore, signupService) {
+			$scope.signup = function () {
+				signupService.signup($scope.user, function (userCreated) {
+					if (userCreated) {
+						$location.path('/');
+					} else {
+						$scope.error = "User Already Present. Enter new email id.";
+					}
+				});
+			};
+		}]);
 })();
