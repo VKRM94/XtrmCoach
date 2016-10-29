@@ -2,11 +2,19 @@
 using System.Net.Http;
 using System.Web.Http;
 using XtrmCoachRESTServer.Models;
+using XtrmCoachRESTServer.RepositoryInterface;
 
 namespace XtrmCoachRESTServer.Controllers
 {
 	public class SignupController : ApiController
 	{
+		private IUserRepository _iUserRepository;
+
+		public SignupController(IUserRepository userRepository)
+		{
+			_iUserRepository = userRepository;
+		}
+
 		/*// GET: api/User
 		public ArrayList Get()
 		{
@@ -26,9 +34,8 @@ namespace XtrmCoachRESTServer.Controllers
 		// POST: api/Signup
 		public HttpResponseMessage Post([FromBody]User user)
 		{
-			UserPersistence userPersistance = new UserPersistence();
 			HttpResponseMessage response;
-			long userId = userPersistance.saveUser(user);
+			long userId = _iUserRepository.SaveUser(user);
 
 			if (userId != -1)
 			{

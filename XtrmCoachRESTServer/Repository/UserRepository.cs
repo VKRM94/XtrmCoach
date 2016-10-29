@@ -1,20 +1,21 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Configuration;
 using XtrmCoachRESTServer.Models;
+using XtrmCoachRESTServer.RepositoryInterface;
 
 namespace XtrmCoachRESTServer
 {
-	public class UserPersistence
+	public class UserRepository : IUserRepository
 	{
 		MySqlConnection conn;
 
-		public UserPersistence()
+		public UserRepository()
 		{
-			string myConnectionString = "server=127.0.0.1;uid=root;pwd=;database=XtrmCoach";
 			try
 			{
 				conn = new MySqlConnection();
-				conn.ConnectionString = myConnectionString;
+				conn.ConnectionString = ConfigurationManager.ConnectionStrings["dbConnectionString"].ConnectionString;
 				conn.Open();
 			}
 			catch (MySqlException ex)
@@ -58,7 +59,7 @@ namespace XtrmCoachRESTServer
 			return users;
 		}*/
 
-		public long saveUser(User userToSave)
+		public long SaveUser(User userToSave)
 		{
 			String sqlStr = "INSERT INTO user (first_name, last_name, email_id, password, is_admin) VALUES ('" + userToSave.firstName + "', '" + userToSave.lastName + "', '" + userToSave.emailId + "', '" + userToSave.password + "', false)";
 			MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
@@ -95,7 +96,7 @@ namespace XtrmCoachRESTServer
 			}
 		}*/
 
-		public User authenticateUser(string username, string password)
+		public User AuthenticateUser(string username, string password)
 		{
 			String sqlStr = "SELECT * FROM User WHERE email_id = '" + username + "' AND password = '" + password + "'";
 			MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
