@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XtrmCoach", "XtrmCoach\Xtrm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XtrmCoachRESTServer", "XtrmCoachRESTServer\XtrmCoachRESTServer.csproj", "{0D551AB7-8347-4A47-B57C-742CBC967DBF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XtrmCoachRESTServerTest", "XtrmCoachRESTServerTest\XtrmCoachRESTServerTest.csproj", "{519FAD98-950A-4A0F-ACA8-3AB064A45773}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{0D551AB7-8347-4A47-B57C-742CBC967DBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D551AB7-8347-4A47-B57C-742CBC967DBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D551AB7-8347-4A47-B57C-742CBC967DBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{519FAD98-950A-4A0F-ACA8-3AB064A45773}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{519FAD98-950A-4A0F-ACA8-3AB064A45773}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{519FAD98-950A-4A0F-ACA8-3AB064A45773}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{519FAD98-950A-4A0F-ACA8-3AB064A45773}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
