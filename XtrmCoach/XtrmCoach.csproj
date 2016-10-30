@@ -101,6 +101,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="css\" />
     <Folder Include="Scripts\i18n\" />
   </ItemGroup>
   <PropertyGroup>
