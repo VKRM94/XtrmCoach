@@ -1,6 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using System;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -12,27 +11,23 @@ using XtrmCoachRESTServer.Util;
 namespace XtrmCoachRESTServerTest.ControllerTest
 {
 	[TestClass]
-	public class LoginControllerTest
+	public class SignupControllerTest
 	{
 		[TestMethod]
 		public void Post_Valid_Test()
 		{
 			// Arrange
 			User userObjAsInput = new User();
+			userObjAsInput.firstName = "Team";
+			userObjAsInput.lastName = "2";
 			userObjAsInput.emailId = "team2@uncc.edu";
 			userObjAsInput.password = "team2password";
 
-			User userObjExpcetedAsResponse = new User();
-			userObjExpcetedAsResponse.emailId = "team2@uncc.edu";
-			userObjExpcetedAsResponse.firstName = "Team";
-			userObjExpcetedAsResponse.lastName = "2";
-			userObjExpcetedAsResponse.isAdmin = false;
-
 			var mockRepository = new Mock<IUserRepository>();
-			mockRepository.Setup(x => x.AuthenticateUser(userObjAsInput.emailId, userObjAsInput.password))
-				.Returns(userObjExpcetedAsResponse);
+			mockRepository.Setup(x => x.SaveUser(userObjAsInput))
+				.Returns(1);
 
-			var controller = new LoginController(mockRepository.Object);
+			var controller = new SignupController(mockRepository.Object);
 			controller.Request = new HttpRequestMessage();
 			controller.Configuration = new HttpConfiguration();
 
@@ -41,10 +36,10 @@ namespace XtrmCoachRESTServerTest.ControllerTest
 
 			// Assert
 			string responseJSONStr = response.Content.ReadAsStringAsync().Result;
-			User userObjInResponse = Helper.Deserialize<User>(responseJSONStr);
+			string responseStr = Helper.Deserialize<string>(responseJSONStr);
 			Assert.IsNotNull(response);
 			Assert.AreEqual(response.StatusCode, HttpStatusCode.OK);
-			Assert.IsTrue(Object.Equals(userObjExpcetedAsResponse, userObjInResponse));
+			Assert.AreEqual(responseStr, "User created successfully.");
 		}
 
 		[TestMethod]
@@ -53,7 +48,7 @@ namespace XtrmCoachRESTServerTest.ControllerTest
 			// Arrange
 			var mockRepository = new Mock<IUserRepository>();
 
-			var controller = new LoginController(mockRepository.Object);
+			var controller = new SignupController(mockRepository.Object);
 			controller.Request = new HttpRequestMessage();
 			controller.Configuration = new HttpConfiguration();
 
@@ -69,16 +64,18 @@ namespace XtrmCoachRESTServerTest.ControllerTest
 		}
 
 		[TestMethod]
-		public void Post_Empty_Username_Test()
+		public void Post_Empty_Firstname_Test()
 		{
 			// Arrange
 			User userObjAsInput = new User();
-			userObjAsInput.emailId = "";
+			userObjAsInput.firstName = "";
+			userObjAsInput.lastName = "2";
+			userObjAsInput.emailId = "team2@uncc.edu";
 			userObjAsInput.password = "team2password";
 
 			var mockRepository = new Mock<IUserRepository>();
 
-			var controller = new LoginController(mockRepository.Object);
+			var controller = new SignupController(mockRepository.Object);
 			controller.Request = new HttpRequestMessage();
 			controller.Configuration = new HttpConfiguration();
 
@@ -90,7 +87,61 @@ namespace XtrmCoachRESTServerTest.ControllerTest
 			string responseStr = Helper.Deserialize<string>(responseJSONStr);
 			Assert.IsNotNull(response);
 			Assert.AreEqual(response.StatusCode, HttpStatusCode.PartialContent);
-			Assert.AreEqual(responseStr, "User Name is empty.");
+			Assert.AreEqual(responseStr, "User First Name is empty.");
+		}
+
+		[TestMethod]
+		public void Post_Empty_Lastname_Test()
+		{
+			// Arrange
+			User userObjAsInput = new User();
+			userObjAsInput.firstName = "Team";
+			userObjAsInput.lastName = "";
+			userObjAsInput.emailId = "team2@uncc.edu";
+			userObjAsInput.password = "team2password";
+
+			var mockRepository = new Mock<IUserRepository>();
+
+			var controller = new SignupController(mockRepository.Object);
+			controller.Request = new HttpRequestMessage();
+			controller.Configuration = new HttpConfiguration();
+
+			// Act
+			HttpResponseMessage response = controller.Post(userObjAsInput);
+
+			// Assert
+			string responseJSONStr = response.Content.ReadAsStringAsync().Result;
+			string responseStr = Helper.Deserialize<string>(responseJSONStr);
+			Assert.IsNotNull(response);
+			Assert.AreEqual(response.StatusCode, HttpStatusCode.PartialContent);
+			Assert.AreEqual(responseStr, "User Last Name is empty.");
+		}
+
+		[TestMethod]
+		public void Post_Empty_Email_Test()
+		{
+			// Arrange
+			User userObjAsInput = new User();
+			userObjAsInput.firstName = "Team";
+			userObjAsInput.lastName = "2";
+			userObjAsInput.emailId = "";
+			userObjAsInput.password = "team2password";
+
+			var mockRepository = new Mock<IUserRepository>();
+
+			var controller = new SignupController(mockRepository.Object);
+			controller.Request = new HttpRequestMessage();
+			controller.Configuration = new HttpConfiguration();
+
+			// Act
+			HttpResponseMessage response = controller.Post(userObjAsInput);
+
+			// Assert
+			string responseJSONStr = response.Content.ReadAsStringAsync().Result;
+			string responseStr = Helper.Deserialize<string>(responseJSONStr);
+			Assert.IsNotNull(response);
+			Assert.AreEqual(response.StatusCode, HttpStatusCode.PartialContent);
+			Assert.AreEqual(responseStr, "User Email is empty.");
 		}
 
 		[TestMethod]
@@ -98,12 +149,14 @@ namespace XtrmCoachRESTServerTest.ControllerTest
 		{
 			// Arrange
 			User userObjAsInput = new User();
+			userObjAsInput.firstName = "Team";
+			userObjAsInput.lastName = "2";
 			userObjAsInput.emailId = "team2@uncc.edu";
 			userObjAsInput.password = "";
 
 			var mockRepository = new Mock<IUserRepository>();
 
-			var controller = new LoginController(mockRepository.Object);
+			var controller = new SignupController(mockRepository.Object);
 			controller.Request = new HttpRequestMessage();
 			controller.Configuration = new HttpConfiguration();
 
@@ -119,18 +172,20 @@ namespace XtrmCoachRESTServerTest.ControllerTest
 		}
 
 		[TestMethod]
-		public void Post_InValid_User_Test()
+		public void Post_User_Already_Exists_Test()
 		{
 			// Arrange
 			User userObjAsInput = new User();
-			userObjAsInput.emailId = "team200@uncc.edu";
+			userObjAsInput.firstName = "Team";
+			userObjAsInput.lastName = "2";
+			userObjAsInput.emailId = "team2@uncc.edu";
 			userObjAsInput.password = "team2password";
 
 			var mockRepository = new Mock<IUserRepository>();
-			mockRepository.Setup(x => x.AuthenticateUser(userObjAsInput.emailId, userObjAsInput.password))
-				.Returns((User)null);
+			mockRepository.Setup(x => x.SaveUser(userObjAsInput))
+				.Returns(-1);
 
-			var controller = new LoginController(mockRepository.Object);
+			var controller = new SignupController(mockRepository.Object);
 			controller.Request = new HttpRequestMessage();
 			controller.Configuration = new HttpConfiguration();
 
@@ -141,8 +196,8 @@ namespace XtrmCoachRESTServerTest.ControllerTest
 			string responseJSONStr = response.Content.ReadAsStringAsync().Result;
 			string responseStr = Helper.Deserialize<string>(responseJSONStr);
 			Assert.IsNotNull(response);
-			Assert.AreEqual(response.StatusCode, HttpStatusCode.NotFound);
-			Assert.AreEqual(responseStr, "User not present.");
+			Assert.AreEqual(response.StatusCode, HttpStatusCode.Conflict);
+			Assert.AreEqual(responseStr, "User already present.");
 		}
 	}
 }

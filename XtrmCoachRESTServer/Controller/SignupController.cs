@@ -35,6 +35,37 @@ namespace XtrmCoachRESTServer.Controllers
 		public HttpResponseMessage Post([FromBody]User user)
 		{
 			HttpResponseMessage response;
+
+			if (user == null)
+			{
+				response = Request.CreateResponse(HttpStatusCode.NoContent, "Invalid JSON Passed.");
+				return response;
+			}
+
+			if (string.IsNullOrWhiteSpace(user.firstName))
+			{
+				response = Request.CreateResponse(HttpStatusCode.PartialContent, "User First Name is empty.");
+				return response;
+			}
+
+			if (string.IsNullOrWhiteSpace(user.lastName))
+			{
+				response = Request.CreateResponse(HttpStatusCode.PartialContent, "User Last Name is empty.");
+				return response;
+			}
+
+			if (string.IsNullOrWhiteSpace(user.emailId))
+			{
+				response = Request.CreateResponse(HttpStatusCode.PartialContent, "User Email is empty.");
+				return response;
+			}
+
+			if (string.IsNullOrWhiteSpace(user.password))
+			{
+				response = Request.CreateResponse(HttpStatusCode.PartialContent, "User Password is empty.");
+				return response;
+			}
+
 			long userId = _iUserRepository.SaveUser(user);
 
 			if (userId != -1)
@@ -43,7 +74,7 @@ namespace XtrmCoachRESTServer.Controllers
 			}
 			else
 			{
-				response = Request.CreateResponse(HttpStatusCode.BadRequest, "User already present.");
+				response = Request.CreateResponse(HttpStatusCode.Conflict, "User already present.");
 			}
 
 			return response;

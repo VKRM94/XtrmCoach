@@ -24,19 +24,19 @@ namespace XtrmCoachRESTServer.Controllers
 
 			if (user == null)
 			{
-				response = Request.CreateResponse(HttpStatusCode.BadRequest, "Invalid JSON Passed.");
+				response = Request.CreateResponse(HttpStatusCode.NoContent, "Invalid JSON Passed.");
 				return response;
 			}
 
 			if (string.IsNullOrWhiteSpace(user.emailId))
 			{
-				response = Request.CreateResponse(HttpStatusCode.BadRequest, "User Name is empty.");
+				response = Request.CreateResponse(HttpStatusCode.PartialContent, "User Name is empty.");
 				return response;
 			}
 
 			if (string.IsNullOrWhiteSpace(user.password))
 			{
-				response = Request.CreateResponse(HttpStatusCode.BadRequest, "User Password is empty.");
+				response = Request.CreateResponse(HttpStatusCode.PartialContent, "User Password is empty.");
 				return response;
 			}
 
