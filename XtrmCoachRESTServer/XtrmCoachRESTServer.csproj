@@ -126,6 +126,7 @@
     <Compile Include="RepositoryInterface\IUserRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Resolver\UnityResolver.cs" />
+    <Compile Include="Util\Helper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
