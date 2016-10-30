@@ -20,13 +20,13 @@ namespace XtrmCoachRESTServer
 			}
 			catch (MySqlException ex)
 			{
-				throw;
+				throw ex;
 			}
 		}
 
-		/*public User getUser(long userId)
+		public User getUser(long userId)
 		{
-			String sqlStr = "SELECT * FROM User WHERE Id = " + userId + "";
+			String sqlStr = "SELECT id, first_name, last_name, email_id, password, is_admin FROM User WHERE Id = " + userId + "";
 			MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
 			MySqlDataReader sqlReader = cmd.ExecuteReader();
 			User user = new User();
@@ -35,10 +35,15 @@ namespace XtrmCoachRESTServer
 			{
 				user.id = sqlReader.GetInt32(0);
 				user.firstName = sqlReader.GetString(1);
+				user.lastName = sqlReader.GetString(2);
+				user.emailId = sqlReader.GetString(3);
+				user.password = sqlReader.GetString(4);
+				user.isAdmin = sqlReader.GetBoolean(5);
 			}
 
+			sqlReader.Close();
 			return user;
-		}*/
+		}
 
 		/*public ArrayList getUser()
 		{
@@ -74,7 +79,7 @@ namespace XtrmCoachRESTServer
 			}
 		}
 
-		/*public bool deleteUser(long userId)
+		public bool deleteUser(long userId)
 		{
 			String sqlStr = "SELECT * FROM User WHERE Id = " + userId + "";
 			MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
@@ -94,7 +99,7 @@ namespace XtrmCoachRESTServer
 			{
 				return false;
 			}
-		}*/
+		}
 
 		public User AuthenticateUser(string username, string password)
 		{
@@ -111,6 +116,7 @@ namespace XtrmCoachRESTServer
 				user.emailId = sqlReader.GetString(3);
 				user.isAdmin = sqlReader.GetBoolean(5);
 
+				sqlReader.Close();
 				return user;
 			}
 

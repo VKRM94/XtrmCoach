@@ -110,7 +110,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DB_Script\XtrmCoachCreateDB.txt" />
+    <Content Include="DBScript\XtrmCoachCreateDB.txt" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>

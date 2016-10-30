@@ -76,6 +76,7 @@
   <ItemGroup>
     <Compile Include="ControllerTest\SignupControllerTest.cs" />
     <Compile Include="ControllerTest\LoginControllerTest.cs" />
+    <Compile Include="RepositoryIntegrationTest\UserRepositoryTest.cs" />
     <Compile Include="UtilTest\HelperTest.cs" />
     <Compile Include="ModelTest\UserTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -86,7 +87,9 @@
       <Name>XtrmCoachRESTServer</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="DbScriptTest\XtrmCoachCreateTestDB.txt" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />

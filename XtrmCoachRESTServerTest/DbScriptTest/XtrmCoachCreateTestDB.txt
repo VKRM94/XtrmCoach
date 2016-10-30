@@ -1,0 +1,14 @@
+DROP DATABASE IF EXISTS XtrmCoachTest;
+
+CREATE DATABASE XtrmCoachTest;
+
+USE XtrmCoachTest;
+
+CREATE TABLE user (
+	id			INT				PRIMARY KEY   AUTO_INCREMENT			,
+	first_name	VARCHAR(255)									NOT NULL,
+	last_name	VARCHAR(255)									NOT NULL,
+	email_id	VARCHAR(255)	UNIQUE							NOT NULL,
+	password	VARCHAR(255)									NOT NULL,
+	is_admin	BOOLEAN											NOT NULL
+);
