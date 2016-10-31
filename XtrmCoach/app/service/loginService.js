@@ -16,10 +16,10 @@
 
 			$http.post('http://localhost:65335/api/Login/', user, config)
 			.success(function (data, status) {
-				callback(data);
+				callback(data, status);
 			})
 			.error(function (data, status) {
-				callback();
+				callback(data, status);
 			});
 		};
 	}]);

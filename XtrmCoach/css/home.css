@@ -1,0 +1,15 @@
+﻿.login-container {
+	margin-top: 150px;
+}
+
+.login-form {
+	max-width: 350px;
+	margin: 0 auto;
+}
+
+.alpha60 {
+	background-color: rgb(256, 256, 256);
+	background-color: rgba(256, 256, 256, 0.6);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+}
