@@ -7,6 +7,13 @@
 				username: '',
 				password: ''
 			};
+			$scope.isInValidCredentials = false;
+
+			$scope.isSignUpSuccess = false;
+			if ($rootScope.isSignUpSuccess == true) {
+				$scope.isSignUpSuccess = true;
+				$rootScope.isSignUpSuccess = false;
+			}
 
 			$scope.login = function () {
 				var username = $scope.user.username;
@@ -21,6 +28,7 @@
 						$location.path('/dashboard');
 					} else {
 						$scope.error = response;
+						$scope.isInValidCredentials = true;
 					}
 				});
 			};

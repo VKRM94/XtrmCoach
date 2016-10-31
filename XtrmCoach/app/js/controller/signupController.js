@@ -10,13 +10,15 @@
 				password: '',
 				rePassword: ''
 			};
+			$scope.isUserAlreadyPresent = false;
 
 			$scope.signup = function () {
 				signupService.signup($scope.user, function (userCreated) {
 					if (userCreated) {
 						$location.path('/');
+						$rootScope.isSignUpSuccess = true;
 					} else {
-						$scope.error = "User Already Present. Enter new email id.";
+						$scope.isUserAlreadyPresent = true;
 					}
 				});
 			};

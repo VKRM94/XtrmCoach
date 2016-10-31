@@ -1,0 +1,62 @@
+﻿body {
+	background: url('../image/prod_bg.jpg') no-repeat center center fixed;
+	background-size: cover;
+	color: white;
+}
+
+.title {
+	font-family: 'Allerta Stencil', sans-serif;
+	font-size: 50px !important;
+	margin: 20px 0 0 0;
+}
+
+.login-container {
+	margin-top: 180px;
+}
+
+.signup-container {
+	margin-top: 100px;
+}
+
+.signup-form {
+	max-width: 400px;
+	margin: 0 auto;
+}
+
+.well {
+	background: rgba(0, 0, 0, 0.8);
+	border-color: rgba(0, 0, 0, 0.9);
+	padding: 10px;
+}
+
+.login-form {
+	max-width: 400px;
+	margin: 0 auto;
+}
+
+.login-form-message {
+	min-width: 400px;
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+	position: absolute;
+	top: 150px;
+}
+
+.no-bottom-margin {
+	margin-bottom: 0px;
+}
+
+.help-block {
+	color:orangered !important;
+}
+
+.btn-primary[disabled] {
+	color: #265a88;
+}
+
+.btn-primary[disabled]:hover{
+	color: white;
+}

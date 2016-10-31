@@ -1,6 +1,41 @@
-﻿First Name: <input type="text" ng-model="user.firstName" /><br />
+﻿<!--First Name: <input type="text" ng-model="user.firstName" /><br />
 Last Name: <input type="password" ng-model="user.lastName" /><br />
 Email: <input type="password" ng-model="user.emailId" /><br />
 Password: <input type="password" ng-model="user.password" /><br />
 Retype Password: <input type="password" ng-model="user.rePassword" /><br />
-<button type="button" ng-click="signup()">Signup</button>
+<button type="button" ng-click="signup()">Signup</button>-->
+
+<div class="text-center title">XtrmCoach</div>
+
+<div class="container">
+	<div class="signup-container">
+		<form class="well signup-form" action="/signup" name="signupForm">
+			<div class="form-group">
+				<input type="text" class="form-control" ng-model="user.firstName" name="firstName" placeholder="First Name" required>
+				<span ng-show="signupForm.firstName.$touched && signupForm.firstName.$error.required" class="help-block">First Name is required.</span>
+			</div>
+			<div class="form-group">
+				<input type="text" class="form-control" ng-model="user.lastName" name="lastName" placeholder="Last Name" required>
+				<span ng-show="signupForm.lastName.$touched && signupForm.lastName.$error.required" class="help-block">Last Name is required.</span>
+			</div>
+			<div class="form-group">
+				<input type="email" class="form-control" ng-model="user.emailId" name="emailId" placeholder="Email Id" required>
+				<span ng-show="signupForm.emailId.$touched && signupForm.emailId.$error.required" class="help-block">Email Id is required.</span>
+				<span ng-show="signupForm.emailId.$touched && signupForm.emailId.$error.email" class="help-block">Invalid Email Id.</span>
+				<span ng-show="isUserAlreadyPresent" class="help-block">User already exist! Use different Email Id.</span>
+			</div>
+			<div class="form-group">
+				<input type="password" class="form-control" ng-model="user.password" name="password" placeholder="Password" required>
+				<span ng-show="signupForm.password.$touched && signupForm.password.$error.required" class="help-block">Password is required.</span>
+			</div>
+			<div class="form-group">
+				<input type="password" class="form-control" ng-model="user.rePassword" name="rePassword" placeholder="Retype Password" required>
+				<span ng-show="signupForm.rePassword.$touched && signupForm.rePassword.$error.required" class="help-block">Re Password is required.</span>
+				<span ng-show="signupForm.rePassword.$touched && user.password != user.rePassword" class="help-block">Password and Re Password does not match.</span>
+			</div>
+			<div class="form-group">
+				<button type="button" class="btn btn-primary form-control" ng-click="signup()" ng-disabled="signupForm.firstName.$invalid || signupForm.lastName.$invalid || signupForm.emailId.$invalid || signupForm.password.$invalid || signupForm.rePassword.$invalid || user.password != user.rePassword">Sign Up</button>
+			</div>
+		</form>
+	</div>
+</div>

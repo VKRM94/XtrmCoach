@@ -66,10 +66,11 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\controller\signupController.js" />
-    <Content Include="app\controller\dashboardController.js" />
-    <Content Include="app\service\loginService.js" />
-    <Content Include="app\service\signupService.js" />
+    <Content Include="app\image\prod_bg.jpg" />
+    <Content Include="app\js\controller\signupController.js" />
+    <Content Include="app\js\controller\dashboardController.js" />
+    <Content Include="app\js\service\loginService.js" />
+    <Content Include="app\js\service\signupService.js" />
     <Content Include="app\views\signup.html" />
     <Content Include="app\views\dashboard.html" />
     <Content Include="app\views\home.html" />
@@ -77,7 +78,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="css\home.css" />
+    <Content Include="app\css\home.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="index.html" />
     <Content Include="packages.config">
@@ -116,7 +117,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\controller\homeController.js" />
+    <Content Include="app\js\controller\homeController.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
