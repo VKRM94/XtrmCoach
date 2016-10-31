@@ -3,6 +3,8 @@
 	angular
 		.module('app')
 		.controller('signupController', ['$scope', '$location', '$rootScope', '$cookieStore', 'signupService', function signupController($scope, $location, $rootScope, $cookieStore, signupService) {
+			$rootScope.bodyLayout = 'login-signup-body';
+
 			$scope.user = {
 				firstName: '',
 				lastName: '',
@@ -10,6 +12,7 @@
 				password: '',
 				rePassword: ''
 			};
+
 			$scope.isUserAlreadyPresent = false;
 
 			$scope.signup = function () {

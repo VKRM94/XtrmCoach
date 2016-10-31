@@ -3,10 +3,13 @@
 	angular
 		.module('app')
 		.controller('homeController', ['$scope', '$location', '$rootScope', '$cookieStore', 'loginService', function ($scope, $location, $rootScope, $cookieStore, loginService) {
+			$rootScope.bodyLayout = 'login-signup-body';
+
 			$scope.user = {
 				username: '',
 				password: ''
 			};
+
 			$scope.isInValidCredentials = false;
 
 			$scope.isSignUpSuccess = false;
