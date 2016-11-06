@@ -23,3 +23,14 @@ CREATE TABLE sport (
 	FOREIGN KEY (user_id)
 	REFERENCES user(id)
 );
+
+CREATE TABLE parameters (
+	id			INT				PRIMARY KEY		AUTO_INCREMENT				,
+	sport_id	INT													NOT NULL,
+	param_name	VARCHAR(100)										NOT NULL,
+	param_value_type	VARCHAR(100)								NOT NULL,
+	CONSTRAINT	parameters_fk_user
+	FOREIGN KEY	(sport_id)
+	REFERENCES	sport(id)
+
+);
