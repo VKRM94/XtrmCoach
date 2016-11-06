@@ -15,4 +15,11 @@ CREATE TABLE user (
 
 INSERT INTO user (first_name, last_name, email_id, password, is_admin) VALUES ('Atul', 'Banwar', 'a@a.a', 'a', false);
 
-SELECT * FROM user;
+CREATE TABLE sport ( 
+	id			INT				PRIMARY KEY		AUTO_INCREMENT				,
+	name 		VARCHAR(100) 										NOT NULL,
+	user_id 	INT													NOT NULL,
+	CONSTRAINT sport_fk_user
+	FOREIGN KEY (user_id)
+	REFERENCES user(id)
+);
