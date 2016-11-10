@@ -9,24 +9,33 @@
 	<link rel="stylesheet" href="Content/bootstrap-theme.css" />
 	<link rel="stylesheet" href="Content/bootstrap.css" />
 	<link rel="stylesheet" href="app/css/home.css" />
+	<link rel="stylesheet" href="app/css/dashboard.css" />
 
 	<link href="https://fonts.googleapis.com/css?family=Allerta+Stencil" rel="stylesheet">
 
 	<script src="Scripts/angular.min.js"></script>
-	<script src="Scripts/angular-route.min.js"></script>
 	<script src="Scripts/angular-cookies.min.js"></script>
+	<script src="Scripts/angular-ui-router.min.js"></script>
+
 	<script src="app/app.module.js"></script>
+
 	<script src="Scripts/jquery-1.9.1.min.js"></script>
 	<script src="Scripts/bootstrap.min.js"></script>
+
 	<script src="app/js/service/loginService.js"></script>
 	<script src="app/js/service/signupService.js"></script>
+
 	<script src="app/js/controller/homeController.js"></script>
 	<script src="app/js/controller/signupController.js"></script>
 	<script src="app/js/controller/dashboardController.js"></script>
+	<script src="app/js/controller/sportController.js"></script>
+	<script src="app/js/controller/playerController.js"></script>
+	<script src="app/js/controller/teamController.js"></script>
 </head>
 
-<body ng-app="app" class="{{bodyLayout}}">
-	<div ng-view></div>
+<body ng-app="app" class="{{bodyLayout}} app-container">
+	<!--<div ng-view></div>-->
+	<div ui-view></div>
 </body>
 
 </html>
