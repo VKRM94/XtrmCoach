@@ -119,16 +119,28 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controller\LoginController.cs" />
+    <Compile Include="Controller\PerformanceParameterController.cs" />
+    <Compile Include="Controller\PerformanceParameterNameController.cs" />
+    <Compile Include="Controller\PerformanceParameterTypeController.cs" />
     <Compile Include="Controller\SignupController.cs" />
     <Compile Include="Controller\SportController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Model\PerformanceParameter.cs" />
+    <Compile Include="Model\PerformanceParameterName.cs" />
+    <Compile Include="Model\PerformanceParameterType.cs" />
     <Compile Include="Model\Sport.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepositoryInterface\IPerformanceParameterNameRepository.cs" />
+    <Compile Include="RepositoryInterface\IPerformanceParameterRepository.cs" />
+    <Compile Include="RepositoryInterface\IPerformanceParameterTypeRepository.cs" />
     <Compile Include="RepositoryInterface\ISportRepository.cs" />
     <Compile Include="RepositoryInterface\IUserRepository.cs" />
+    <Compile Include="Repository\PerformanceParameterNameRepository.cs" />
+    <Compile Include="Repository\PerformanceParameterRepository.cs" />
+    <Compile Include="Repository\PerformanceParameterTypeRepository.cs" />
     <Compile Include="Repository\SportRespository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Resolver\UnityResolver.cs" />

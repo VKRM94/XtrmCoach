@@ -32,6 +32,9 @@ namespace XtrmCoachRESTServer
 			var container = new UnityContainer();
 			container.RegisterType<IUserRepository, UserRepository>(new HierarchicalLifetimeManager());
 			container.RegisterType<ISportRepository, SportRespository>(new HierarchicalLifetimeManager());
+			container.RegisterType<IPerformanceParameterRepository, PerformanceParameterRepository>(new HierarchicalLifetimeManager());
+			container.RegisterType<IPerformanceParameterNameRepository, PerformanceParameterNameRepository>(new HierarchicalLifetimeManager());
+			container.RegisterType<IPerformanceParameterTypeRepository, PerformanceParameterTypeRepository>(new HierarchicalLifetimeManager());
 			config.DependencyResolver = new UnityResolver(container);
 		}
 	}
