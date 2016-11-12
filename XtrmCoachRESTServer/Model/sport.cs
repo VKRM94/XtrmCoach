@@ -6,7 +6,7 @@
 
 		public string name { get; set; }
 
-		public long user_id { get; set; }
+		public long userId { get; set; }
 
 		public override bool Equals(object obj)
 		{
@@ -23,7 +23,7 @@
 
 			if (this.id != s.id) return false;
 			if (this.name != s.name) return false;
-			if (this.user_id != s.user_id) return false;
+			if (this.userId != s.userId) return false;
 
 			return true;
 		}

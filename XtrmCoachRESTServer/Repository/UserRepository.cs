@@ -111,6 +111,7 @@ namespace XtrmCoachRESTServer
 			{
 				User user = new User();
 
+				user.id = sqlReader.GetInt32(0);
 				user.firstName = sqlReader.GetString(1);
 				user.lastName = sqlReader.GetString(2);
 				user.emailId = sqlReader.GetString(3);

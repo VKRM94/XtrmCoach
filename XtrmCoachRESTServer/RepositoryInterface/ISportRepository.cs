@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using XtrmCoachRESTServer.Models;
-using MySql.Data;
 
 namespace XtrmCoachRESTServer.RepositoryInterface
 {
