@@ -10,7 +10,6 @@ namespace XtrmCoachRESTServer.Models
 {
 	public class User
 	{
-		[ScriptIgnore]
 		public long id { get; set; }
 
 		public string firstName { get; set; }

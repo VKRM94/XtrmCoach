@@ -31,32 +31,33 @@ namespace XtrmCoachRESTServer
 			MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
 			MySqlDataReader sqlReader = cmd.ExecuteReader();
 			ArrayList sports = new ArrayList();
-			Sport sport;
 
 			while (sqlReader.Read())
 			{
 				Sport sp = new Sport();
 				sp.id = sqlReader.GetInt32(0);
 				sp.name = sqlReader.GetString(1);
-				sp.user_id = sqlReader.GetInt32(0);
+				sp.userId = sqlReader.GetInt32(2);
 				sports.Add(sp);
 			}
 
+			sqlReader.Close();
 			return sports;
 		}
 
 		public Sport GetSport(long sportId)
 		{
-			String sqlStr = "SELECT id,name,user_id FROM sport WHERE id = " + sportId + "";
+			String sqlStr = "SELECT id, name, user_id FROM sport WHERE id = " + sportId + "";
 			MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
 			MySqlDataReader sqlReader = cmd.ExecuteReader();
-			Sport sport = new Sport();
+			Sport sport = null;
 
 			if (sqlReader.Read())
 			{
+				sport = new Sport();
 				sport.id = sqlReader.GetInt32(0);
 				sport.name = sqlReader.GetString(1);
-				sport.user_id = sqlReader.GetInt32(2);
+				sport.userId = sqlReader.GetInt32(2);
 			}
 
 			sqlReader.Close();
@@ -65,7 +66,7 @@ namespace XtrmCoachRESTServer
 
 		public long InsertSport(Sport sport)
 		{
-			String sqlStr = "INSERT INTO sport (name,user_id) VALUES ('" + sport.name + "', '" + sport.user_id + "', false)";
+			String sqlStr = "INSERT INTO sport (name, user_id) VALUES ('" + sport.name + "', " + sport.userId + ")";
 			MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
 			try
 			{
@@ -102,7 +103,7 @@ namespace XtrmCoachRESTServer
 
 		public bool UpdateSport(Sport sport)
 		{
-			String sqlStr = "SELECT * FROM Sport WHERE id = '" + sport.id + "";
+			String sqlStr = "SELECT * FROM Sport WHERE id = " + sport.id;
 			MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
 			MySqlDataReader sqlReader = cmd.ExecuteReader();
 
@@ -110,7 +111,7 @@ namespace XtrmCoachRESTServer
 			{
 				sqlReader.Close();
 
-				sqlStr = "UPDATE Sport SET name =  " + sport.name + " FROM Sport WHERE Id = " + sport.id + "";
+				sqlStr = "UPDATE Sport SET name =  '" + sport.name + "' WHERE id = " + sport.id;
 				cmd = new MySqlCommand(sqlStr, conn);
 				cmd.ExecuteNonQuery();
 

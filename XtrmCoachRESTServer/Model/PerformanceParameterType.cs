@@ -1,12 +1,10 @@
 ﻿namespace XtrmCoachRESTServer.Models
 {
-	public class Sport
+	public class PerformanceParameterType
 	{
 		public long id { get; set; }
 
 		public string name { get; set; }
-
-		public long userId { get; set; }
 
 		public override bool Equals(object obj)
 		{
@@ -15,7 +13,7 @@
 				return false;
 			}
 
-			Sport s = obj as Sport;
+			PerformanceParameterType s = obj as PerformanceParameterType;
 			if ((System.Object)s == null)
 			{
 				return false;
@@ -23,7 +21,6 @@
 
 			if (this.id != s.id) return false;
 			if (this.name != s.name) return false;
-			if (this.userId != s.userId) return false;
 
 			return true;
 		}
