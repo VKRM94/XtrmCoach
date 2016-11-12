@@ -1,1 +1,35 @@
-﻿List of sports
+﻿<div ng-show="!showParameters">
+	<button ng-click="addNewSport()">Add New Sport</button>
+	<div>
+		<div ng-repeat="sport in sports">
+			<div ng-show="sport.isEdit">
+				<input type="text" ng-model="sport.name" />
+				<a href="" ng-click="addOrUpdateSport(sport.id)">Okay</a>
+				<a href="" ng-click="cancelAddOrUpdate(sport.id)">Cancel</a>
+			</div>
+			<div ng-show="!sport.isEdit">
+				<div>{{sport.name}}</div>
+				<a href="" ng-click="getParameters(sport.id)">Show Parameters</a>
+				<a href="" ng-click="editSport(sport.id)">Edit Sport</a>
+				<a href="" ng-click="deleteSport(sport.id)">Delete Sport</a>
+			</div>
+		</div>
+	</div>
+</div>
+<div ng-show="showParameters">
+	<button ng-click="addNewPerfParameter()">Add New Performance Parameter</button>
+	<div>
+		<div ng-repeat="perfParameter in perfParameters">
+			<div ng-show="perfParameter.isEdit">
+				<input type="text" ng-model="perfParameter.name" />
+				<a href="" ng-click="addOrUpdatePerfParameter(perfParameter.id)">Okay</a>
+				<a href="" ng-click="cancelAddOrUpdate(perfParameter.id)">Cancel</a>
+			</div>
+			<div ng-show="!perfParameter.isEdit">
+				<div>{{perfParameter.name}}</div>
+				<a href="" ng-click="editPerfParameter(perfParameter.id)">Edit Performance Parameter</a>
+				<a href="" ng-click="deletePerfParameter(perfParameter.id)">Delete Performance Parameter</a>
+			</div>
+		</div>
+	</div>
+</div>

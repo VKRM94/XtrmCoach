@@ -1,8 +1,8 @@
 ﻿(function () {
 	'use strict';
-	var app = angular.module('app', ['ngRoute', 'ngCookies', 'ui.router']);
+	var app = angular.module('app', ['ngCookies', 'ui.router']);
 
-	app.config(function ($routeProvider, $httpProvider, $stateProvider, $urlRouterProvider) {
+	app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
 		$stateProvider
 		.state('home', {
 			url: '/home',

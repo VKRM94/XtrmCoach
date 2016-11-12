@@ -73,6 +73,7 @@
     <Content Include="app\js\controller\sportController.js" />
     <Content Include="app\js\controller\signupController.js" />
     <Content Include="app\js\controller\dashboardController.js" />
+    <Content Include="app\js\service\sportService.js" />
     <Content Include="app\js\service\loginService.js" />
     <Content Include="app\js\service\signupService.js" />
     <Content Include="app\views\players.html" />
