@@ -2,7 +2,7 @@
 	'use strict';
 	angular
 		.module('app')
-		.controller('homeController', ['$scope', '$location', '$rootScope', '$cookieStore', 'loginService', function ($scope, $location, $rootScope, $cookieStore, loginService) {
+		.controller('homeController', ['$scope', '$location', '$rootScope', '$cookieStore', '$state', 'loginService', function ($scope, $location, $rootScope, $cookieStore, $state, loginService) {
 			$rootScope.bodyLayout = 'login-signup-body';
 
 			$scope.user = {
@@ -28,7 +28,7 @@
 						$cookieStore.put('user', $rootScope.user);
 						$rootScope.isLoggedIn = true;
 						$cookieStore.put('isLoggedIn', $rootScope.isLoggedIn);
-						$location.path('/dashboard');
+						$state.go('dashboard');
 					} else {
 						$scope.error = response;
 						$scope.isInValidCredentials = true;
@@ -37,7 +37,7 @@
 			};
 
 			$scope.signup = function () {
-				$location.path('/signup');
+				$state.go('signup');
 			};
 		}
 	]);

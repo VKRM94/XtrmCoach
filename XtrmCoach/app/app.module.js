@@ -1,31 +1,53 @@
 ﻿(function () {
 	'use strict';
-	var app = angular.module('app', ['ngRoute', 'ngCookies']);
+	var app = angular.module('app', ['ngRoute', 'ngCookies', 'ui.router']);
 
-	app.config(function ($routeProvider, $httpProvider) {
-		$routeProvider
-		.when('/', {
+	app.config(function ($routeProvider, $httpProvider, $stateProvider, $urlRouterProvider) {
+		$stateProvider
+		.state('home', {
+			url: '/home',
 			controller: 'homeController',
 			templateUrl: 'app/views/home.html'
 		})
-		.when('/dashboard', {
-			resolve: {
-				"check": function ($location, $rootScope) {
-					if (!$rootScope.isLoggedIn) {
-						$location.path('/');
-					}
-				}
-			},
-			controller: 'dashboardController',
-			templateUrl: 'app/views/dashboard.html'
-		})
-		.when('/signup', {
+		.state('signup', {
+			url: '/signup',
 			controller: 'signupController',
 			templateUrl: 'app/views/signup.html'
 		})
-		.otherwise({
-			redirectTo: 'app/views/home.html'
+		.state('dashboard', {
+			url: '/dashboard',
+			controller: 'dashboardController',
+			templateUrl: 'app/views/dashboard.html',
+			resolve: {
+				"check": function ($state, $rootScope) {
+					if (!$rootScope.isLoggedIn) {
+						$state.go('home');
+					}
+				}
+			}
+		})
+		.state('dashboard.dashboard', {
+			url: '/dashboard',
+			controller: 'dashboardController',
+			templateUrl: 'app/views/dashboard.html'
+		})
+		.state('dashboard.sports', {
+			url: '/sports',
+			controller: 'sportController',
+			templateUrl: 'app/views/sports.html'
+		})
+		.state('dashboard.players', {
+			url: '/players',
+			controller: 'playerController',
+			templateUrl: 'app/views/players.html'
+		})
+		.state('dashboard.teams', {
+			url: '/teams',
+			controller: 'teamController',
+			templateUrl: 'app/views/teams.html'
 		});
+
+		$urlRouterProvider.otherwise('home');
 
 		$httpProvider.defaults.headers.common = {};
 		$httpProvider.defaults.headers.post = {};

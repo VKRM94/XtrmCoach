@@ -4,8 +4,9 @@
 		.module('app')
 		.controller('dashboardController', dashboardController);
 
-	function dashboardController($scope, $location, $rootScope, $cookieStore) {
+	function dashboardController($scope, $location, $rootScope, $cookieStore, $state) {
 		$rootScope.bodyLayout = 'dashboard-body';
+		$rootScope.masterHeaderTitle = 'Dashboard';
 
 		$scope.logout = function () {
 			$rootScope.isLoggedIn = false;
@@ -13,7 +14,7 @@
 			$cookieStore.remove('isLoggedIn');
 			$cookieStore.remove('user');
 
-			$location.path('/');
+			$state.go('home');
 		};
 	}
 })();

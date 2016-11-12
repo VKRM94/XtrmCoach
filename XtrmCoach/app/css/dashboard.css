@@ -1,0 +1,74 @@
+﻿html, body, div[ui-view=""] {
+	height: 100%;
+}
+
+.app-container {
+	height: 100%;
+}
+
+.dashboard-body {
+	background: rgba(0, 0, 0, 0.8);
+	border-color: rgba(0, 0, 0, 0.9);
+}
+
+.container-dashboard {
+	padding: 0px !important;
+	width: 100% !important;
+	height: 100% !important;
+
+	/*border: 1px solid black;*/
+}
+
+.master-header-container {
+	/*border: 1px solid black;*/
+	height: 10%;
+}
+
+.master-header {
+	font-size: 6vh;
+	font-family: 'Allerta Stencil', sans-serif;
+	text-align: center;
+	padding-top: 2vh;
+	color: #EEEEEE;
+}
+
+.master-logout {
+	position: absolute;
+	right: 2vw;
+	top: 5vh;
+	font-size: 2vh;
+}
+
+.master-body {
+	/*border: 1px solid black;*/
+	height: 90%;
+}
+
+.master-navigator {
+	/*border: 1px solid black;*/
+	height: 100%;
+	width: 20%;
+	float: left;
+	padding: 10px;
+}
+
+.master-navigator .nav {
+	background: rgba(238, 238, 238, 0.9);
+	border-radius: 4px;
+}
+
+.master-content-container {
+	/*border: 1px solid black;*/
+	height: 100%;
+	width: 80%;
+	float: left;
+	padding: 10px 10px 10px 0;
+}
+
+.master-content {
+	width: 100%;
+	height: 100%;
+
+	background: rgba(238, 238, 238, 0.9);
+	border-radius: 4px;
+}
