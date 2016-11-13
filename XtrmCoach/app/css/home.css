@@ -58,13 +58,57 @@
 }
 
 .help-block {
-	color:orangered !important;
+	color: orangered !important;
 }
 
 .btn-primary[disabled] {
 	color: #265a88;
 }
 
-.btn-primary[disabled]:hover{
-	color: white;
+	.btn-primary[disabled]:hover {
+		color: white;
+	}
+
+.home-loader-container {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	font-size: 50px;
+	text-align: center;
+	background: rgba(0,0,0,0.3);
+}
+
+.loader-icon {
+	top: 45%;
+	color: #337ab7;
+}
+
+.glyphicon-spin {
+	-webkit-animation: spin 1000ms infinite linear;
+	animation: spin 1000ms infinite linear;
+}
+
+@-webkit-keyframes spin {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+
+	100% {
+		-webkit-transform: rotate(359deg);
+		transform: rotate(359deg);
+	}
+}
+
+@keyframes spin {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+
+	100% {
+		-webkit-transform: rotate(359deg);
+		transform: rotate(359deg);
+	}
 }

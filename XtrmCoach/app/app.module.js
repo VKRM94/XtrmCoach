@@ -34,7 +34,8 @@
 		.state('dashboard.sports', {
 			url: '/sports',
 			controller: 'sportController',
-			templateUrl: 'app/views/sports.html'
+			templateUrl: 'app/views/sports.html',
+			reload: true
 		})
 		.state('dashboard.players', {
 			url: '/players',

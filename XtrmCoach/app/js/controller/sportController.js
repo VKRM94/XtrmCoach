@@ -19,6 +19,7 @@
 
 		sportService.getSports(function (sports, status) {
 			$scope.sports = sports;
+			$rootScope.showDashboardLoader = false;
 		});
 
 		$scope.addNewSport = function () {

@@ -38,6 +38,10 @@
 
 <body ng-app="app" class="{{bodyLayout}} app-container">
 	<div ui-view></div>
+
+	<div class="home-loader-container" ng-show="showLoader == true">
+		<span class="glyphicon glyphicon-refresh glyphicon-spin loader-icon"></span>
+	</div>
 </body>
 
 </html>

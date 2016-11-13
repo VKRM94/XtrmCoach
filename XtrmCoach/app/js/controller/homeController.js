@@ -19,6 +19,7 @@
 			}
 
 			$scope.login = function () {
+				$rootScope.showLoader = true;
 				var username = $scope.user.username;
 				var password = $scope.user.password;
 
@@ -28,6 +29,8 @@
 						$cookieStore.put('user', $rootScope.user);
 						$rootScope.isLoggedIn = true;
 						$cookieStore.put('isLoggedIn', $rootScope.isLoggedIn);
+
+						$rootScope.showLoader = false;
 						$state.go('dashboard');
 					} else {
 						$scope.error = response;

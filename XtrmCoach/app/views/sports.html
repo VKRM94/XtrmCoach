@@ -4,7 +4,7 @@
 		<div ng-repeat="sport in sports">
 			<div ng-show="sport.isEdit" class="sport-item-container">
 				<div class="sport-item-name-edit">
-					<input class="form-control" type="text" ng-model="sport.name" />
+					<input class="form-control" type="text" placeholder="Sport Name" ng-model="sport.name" />
 				</div>
 				<div class="sport-item-icon">
 					<span class="ionicons ion-checkmark-circled" ng-click="addOrUpdateSport(sport.id)"></span>
@@ -40,7 +40,7 @@
 					<select class="form-control" ng-model="perfParameter.perfParaType" ng-options="perfParaType.name for perfParaType in perfParaTypes"></select>
 				</div>
 				<div class="para-item-edit"> 
-					<input class="form-control" type="text" ng-show="perfParameter.perfParaName.id == 5" ng-model="perfParameter.customName" />
+					<input class="form-control" type="text" ng-show="perfParameter.perfParaName.id == 5" ng-model="perfParameter.customName" placeholder="Custom Name"/>
 				</div>
 				<div class="sport-item-icon">
 					<span class="ionicons ion-checkmark-circled" ng-click="addOrUpdatePerfParameter(perfParameter.id)"></span>

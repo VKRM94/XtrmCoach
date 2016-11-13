@@ -95,3 +95,14 @@
 .selected {
 	color: #337ab7 !important;
 }
+
+.dashboard-loader-container {
+	position: absolute;
+	width: calc(92% - 15px);
+	height: calc(90% - 30px);
+	top: calc(10% + 15px);
+	font-size: 50px;
+	text-align: center;
+	background: rgba(0,0,0,0.3);
+	left: 8%;
+}
