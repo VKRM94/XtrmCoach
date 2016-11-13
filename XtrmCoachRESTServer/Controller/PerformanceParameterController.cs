@@ -66,19 +66,19 @@ namespace XtrmCoachRESTServer.Controller
 		}
 
 		// PUT: api/PerformanceParameter/5
-		public HttpResponseMessage Put(int id, [FromBody]PerformanceParameter performanceParameter)
+		public HttpResponseMessage Put([FromBody]PerformanceParameter performanceParameter)
 		{
 			HttpResponseMessage response;
-
-			if (id <= 0)
-			{
-				response = Request.CreateResponse(HttpStatusCode.NoContent, "Invalid Id Passed.");
-				return response;
-			}
 
 			if (performanceParameter == null)
 			{
 				response = Request.CreateResponse(HttpStatusCode.NoContent, "Invalid JSON Passed.");
+				return response;
+			}
+
+			if (performanceParameter.id <= 0)
+			{
+				response = Request.CreateResponse(HttpStatusCode.NoContent, "Invalid Id Passed.");
 				return response;
 			}
 
@@ -100,7 +100,6 @@ namespace XtrmCoachRESTServer.Controller
 				return response;
 			}
 
-			performanceParameter.id = id;
 			bool isUpdated = _iPerformanceParameterRepository.UpdatePerformanceParameter(performanceParameter);
 
 			if (isUpdated)

@@ -1,34 +1,66 @@
-﻿<div ng-show="!showParameters">
-	<button ng-click="addNewSport()">Add New Sport</button>
+﻿<div class="sport-container" ng-show="!showParameters">
+	<button class="btn btn-primary btn-sport" ng-click="addNewSport()">Add New Sport</button>
 	<div>
 		<div ng-repeat="sport in sports">
-			<div ng-show="sport.isEdit">
-				<input type="text" ng-model="sport.name" />
-				<a href="" ng-click="addOrUpdateSport(sport.id)">Okay</a>
-				<a href="" ng-click="cancelAddOrUpdate(sport.id)">Cancel</a>
+			<div ng-show="sport.isEdit" class="sport-item-container">
+				<div class="sport-item-name-edit">
+					<input class="form-control" type="text" ng-model="sport.name" />
+				</div>
+				<div class="sport-item-icon">
+					<span class="ionicons ion-checkmark-circled" ng-click="addOrUpdateSport(sport.id)"></span>
+				</div>
+				<div class="sport-item-icon">
+					<span class="ionicons ion-close-circled" ng-click="cancelAddOrUpdate(sport.id)"></span>
+				</div>
 			</div>
-			<div ng-show="!sport.isEdit">
-				<div>{{sport.name}}</div>
-				<a href="" ng-click="getParameters(sport.id)">Show Parameters</a>
-				<a href="" ng-click="editSport(sport.id)">Edit Sport</a>
-				<a href="" ng-click="deleteSport(sport.id)">Delete Sport</a>
+			<div ng-show="!sport.isEdit" class="sport-item-container">
+				<div class="sport-item-name" ng-bind="sport.name"></div>
+				<div class="sport-item-icon">
+					<span class="ionicons ion-plus-circled" ng-click="getParameters(sport.id)"></span>
+				</div>
+				<div class="sport-item-icon">
+					<span class="ionicons ion-edit" ng-click="editSport(sport.id)"></span>
+				</div>
+				<div class="sport-item-icon">
+					<span class="ionicons ion-android-delete" ng-click="deleteSport(sport.id)"></span>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
-<div ng-show="showParameters">
-	<button ng-click="addNewPerfParameter()">Add New Performance Parameter</button>
+<div class="sport-container" ng-show="showParameters">
+	<button class="btn btn-primary btn-sport" ng-click="addNewPerfParameter()">Add New Performance Parameter</button>
 	<div>
 		<div ng-repeat="perfParameter in perfParameters">
-			<div ng-show="perfParameter.isEdit">
-				<input type="text" ng-model="perfParameter.name" />
-				<a href="" ng-click="addOrUpdatePerfParameter(perfParameter.id)">Okay</a>
-				<a href="" ng-click="cancelAddOrUpdate(perfParameter.id)">Cancel</a>
+			<div class="sport-item-container" ng-show="perfParameter.isEdit">
+				<div class="para-item-edit">
+					<select class="form-control" ng-init="fetchPerfParaTypes(perfParameter.perfParaName.id)" ng-model="perfParameter.perfParaName" ng-change="fetchPerfParaTypes(perfParameter.perfParaName.id)" ng-options="perfParaName.name for perfParaName in perfParaNames"></select>
+				</div>
+				<div class="para-item-edit">
+					<select class="form-control" ng-model="perfParameter.perfParaType" ng-options="perfParaType.name for perfParaType in perfParaTypes"></select>
+				</div>
+				<div class="para-item-edit"> 
+					<input class="form-control" type="text" ng-show="perfParameter.perfParaName.id == 5" ng-model="perfParameter.customName" />
+				</div>
+				<div class="sport-item-icon">
+					<span class="ionicons ion-checkmark-circled" ng-click="addOrUpdatePerfParameter(perfParameter.id)"></span>
+				</div>
+				<div class="sport-item-icon">
+					<span class="ionicons ion-close-circled" ng-click="cancelAddOrUpdateParameter(perfParameter.id)"></span>
+				</div>
 			</div>
-			<div ng-show="!perfParameter.isEdit">
-				<div>{{perfParameter.name}}</div>
-				<a href="" ng-click="editPerfParameter(perfParameter.id)">Edit Performance Parameter</a>
-				<a href="" ng-click="deletePerfParameter(perfParameter.id)">Delete Performance Parameter</a>
+			<div class="sport-item-container" ng-show="!perfParameter.isEdit">
+				<div class="para-item" ng-bind="perfParameter.perfParaName.name"></div>
+				<div class="para-item" ng-bind="perfParameter.perfParaType.name"></div>
+				<div class="para-item">
+					<div ng-bind="perfParameter.customName" ng-show="perfParameter.perfParaName.id == 5"></div>
+				</div>
+				<div class="sport-item-icon">
+					<span class="ionicons ion-edit" ng-click="editPerfParameter(perfParameter.id)"></span>
+				</div>
+				<div class="sport-item-icon">
+					<span class="ionicons ion-android-delete" ng-click="deletePerfParameter(perfParameter.id)"></span>
+				</div>
 			</div>
 		</div>
 	</div>

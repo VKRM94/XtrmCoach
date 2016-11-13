@@ -15,7 +15,6 @@
 	padding: 0px !important;
 	width: 100% !important;
 	height: 100% !important;
-
 	/*border: 1px solid black;*/
 }
 
@@ -39,6 +38,14 @@
 	font-size: 2vh;
 }
 
+.logout {
+	color: rgba(238, 238, 238, 0.9);
+}
+
+	.logout:hover {
+		color: rgba(238, 238, 238, 0.6);
+	}
+
 .master-body {
 	/*border: 1px solid black;*/
 	height: 90%;
@@ -47,28 +54,44 @@
 .master-navigator {
 	/*border: 1px solid black;*/
 	height: 100%;
-	width: 20%;
+	width: 8%;
 	float: left;
-	padding: 10px;
+	padding-top: 15px;
+	text-align: center;
 }
 
-.master-navigator .nav {
-	background: rgba(238, 238, 238, 0.9);
-	border-radius: 4px;
-}
+	.master-navigator .nav {
+		background: rgba(238, 238, 238, 0.9);
+		border-radius: 4px;
+	}
 
 .master-content-container {
 	/*border: 1px solid black;*/
 	height: 100%;
-	width: 80%;
+	width: 92%;
 	float: left;
-	padding: 10px 10px 10px 0;
+	padding: 15px 15px 15px 0;
 }
 
 .master-content {
 	width: 100%;
 	height: 100%;
-
 	background: rgba(238, 238, 238, 0.9);
 	border-radius: 4px;
+	padding: 15px;
+}
+
+.dashboard-icon {
+	font-size: 4vw;
+	margin-bottom: 4vh;
+	color: rgba(238, 238, 238, 0.9);
+}
+
+	.dashboard-icon:hover {
+		color: rgba(238, 238, 238, 0.6);
+		cursor: pointer;
+	}
+
+.selected {
+	color: #337ab7 !important;
 }

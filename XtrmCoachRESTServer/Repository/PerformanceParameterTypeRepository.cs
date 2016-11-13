@@ -33,7 +33,7 @@ namespace XtrmCoachRESTServer
 			ArrayList performanceParameterTypes = new ArrayList();
 			PerformanceParameterType pp = null;
 
-			if (sqlReader.Read())
+			while (sqlReader.Read())
 			{
 				pp = new PerformanceParameterType();
 				pp.id = sqlReader.GetInt32(0);

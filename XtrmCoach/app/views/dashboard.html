@@ -24,17 +24,20 @@
 			{{masterHeaderTitle}}
 		</div>
 		<div class="master-logout">
-			<a href="" ng-click="logout()">Logout</a>
+			<a href="" class="logout" ng-click="logout()">Logout</a>
 		</div>
 	</div>
 	<div class="master-body">
 		<div class="master-navigator">
-			<ul class="nav nav-pills nav-stacked">
-				<li><a ui-sref="dashboard">Dashboard</a></li>
-				<li><a ui-sref="dashboard.sports">Sports</a></li>
-				<li><a ui-sref="dashboard.players">Players</a></li>
-				<li><a ui-sref="dashboard.teams">Teams</a></li>
-			</ul>
+			<div>
+				<span ng-click="goToDashboard(); selectedOption='dashboard'" ng-class="{'selected':selectedOption=='dashboard'}" class="ionicons ion-ios-speedometer dashboard-icon"></span>
+			</div>
+			<div>
+				<span ng-click="goToSport(); selectedOption='sport'" ng-class="{'selected':selectedOption=='sport'}" class="ionicons ion-ios-americanfootball dashboard-icon"></span>
+			</div>
+			<div>
+				<span ng-click="goToPlayer(); selectedOption='player'" ng-class="{'selected':selectedOption=='player'}" class="ionicons ion-ios-people dashboard-icon"></span>
+			</div>
 		</div>
 		<div class="master-content-container">
 			<div class="master-content">
