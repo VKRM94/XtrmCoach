@@ -76,6 +76,9 @@
   <ItemGroup>
     <Compile Include="ControllerTest\SignupControllerTest.cs" />
     <Compile Include="ControllerTest\LoginControllerTest.cs" />
+    <Compile Include="ControllerTest\SportControllerTest.cs" />
+    <Compile Include="ModelTest\SportTest.cs" />
+    <Compile Include="RepositoryIntegrationTest\SportRepositoryTest.cs" />
     <Compile Include="RepositoryIntegrationTest\UserRepositoryTest.cs" />
     <Compile Include="UtilTest\HelperTest.cs" />
     <Compile Include="ModelTest\UserTest.cs" />

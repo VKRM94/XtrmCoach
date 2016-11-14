@@ -24,6 +24,8 @@ CREATE TABLE sport (
 	REFERENCES user(id)
 );
 
+INSERT INTO sport (name, user_id) VALUES ('Sport 1', 1);
+
 CREATE TABLE perf_para_name (
 	id					INT				PRIMARY KEY		AUTO_INCREMENT				,
 	name				VARCHAR(255)										NOT NULL
@@ -109,3 +111,5 @@ CREATE TABLE perf_para (
 	FOREIGN KEY	(type_id)
 	REFERENCES	perf_para_type(id)
 );
+
+INSERT INTO perf_para (sport_id, name_id, custom_name, type_id) VALUES (1, 1, '', 1);
