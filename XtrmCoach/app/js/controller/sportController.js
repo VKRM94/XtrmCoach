@@ -4,7 +4,7 @@
 		.module('app')
 		.controller('sportController', sportController);
 
-	function sportController($scope, $location, $rootScope, $cookieStore, sportService) {
+	function sportController($scope, $location, $rootScope, $cookieStore, $timeout, sportService) {
 		$rootScope.bodyLayout = 'dashboard-body';
 		$rootScope.masterHeaderTitle = 'Sports';
 
@@ -16,6 +16,7 @@
 		$scope.perfParaTypes = [];
 		var uneditedPerfParameter = {};
 		$scope.currentSportId = 0;
+		$scope.isPerfParaEditOrAddInProgress = false;
 
 		sportService.getSports(function (sports, status) {
 			$scope.sports = sports;
@@ -80,11 +81,37 @@
 			$scope.perfParaNames = perfParaNames;
 		});
 
-		$scope.fetchPerfParaTypes = function (perfParaNameId) {
+		sportService.getPerfParaTypes(5, function (perfParaTypes, status) {
+			if (status == 200) {
+				$scope.perfParaTypes = perfParaTypes;
+			}
+		});
+
+		$scope.fetchPerfParaTypes = function (perfParaNameId, perfParaId) {
 			if (perfParaNameId != 0) {
 				sportService.getPerfParaTypes(perfParaNameId, function (perfParaTypes, status) {
 					if (status == 200) {
 						$scope.perfParaTypes = perfParaTypes;
+
+						if (perfParaId != null) {
+							for (var perfParaIndex = 0; perfParaIndex < $scope.perfParameters.length; perfParaIndex++) {
+								if (perfParaId == $scope.perfParameters[perfParaIndex].id) {
+									for (var perfParaTypeIndex = 0; perfParaTypeIndex < $scope.perfParaTypes.length; perfParaTypeIndex++) {
+										if ($scope.perfParameters[perfParaIndex].perfParaType.id == $scope.perfParaTypes[perfParaTypeIndex].id) {
+											$scope.perfParameters[perfParaIndex].perfParaType = $scope.perfParaTypes[perfParaTypeIndex];
+											break;
+										}
+									}
+
+									for (var perfParaNameIndex = 0; perfParaNameIndex < $scope.perfParaTypes.length; perfParaNameIndex++) {
+										if ($scope.perfParameters[perfParaIndex].perfParaName.id == $scope.perfParaNames[perfParaNameIndex].id) {
+											$scope.perfParameters[perfParaIndex].perfParaName = $scope.perfParaNames[perfParaNameIndex];
+											break;
+										}
+									}
+								}
+							}
+						}
 					}
 				});
 			}
@@ -102,6 +129,7 @@
 		};
 
 		$scope.addNewPerfParameter = function () {
+			$scope.isPerfParaEditOrAddInProgress = true;
 			$scope.perfParameters.push({
 				id: 0,
 				sportId: $scope.currentSportId,
@@ -124,12 +152,14 @@
 				sportService.addNewPerfParameter(perfParameter, function (perfParameters, status) {
 					if (status != false) {
 						$scope.perfParameters = perfParameters;
+						$scope.isPerfParaEditOrAddInProgress = false;
 					}
 				});
 			} else {
 				sportService.updatePerfParameter(perfParameter, function (perfParameters, status) {
 					if (status != false) {
 						$scope.perfParameters = perfParameters;
+						$scope.isPerfParaEditOrAddInProgress = false;
 					}
 				});
 			}
@@ -140,15 +170,20 @@
 			if (perfParameterId == 0) {
 				$scope.perfParameters.pop(perfParameter);
 			} else {
-				perfParameter.name = uneditedPerfParameter.name;
+				perfParameter.perfParaName = uneditedPerfParameter.perfParaName;
+				perfParameter.perfParaType = uneditedPerfParameter.perfParaType;
 				perfParameter.isEdit = false;
 			}
+
+			$scope.isPerfParaEditOrAddInProgress = false;
 		};
 
 		$scope.editPerfParameter = function (perfParameterId) {
 			var perfParameter = getPerfParameter(perfParameterId);
-			uneditedSport = angular.copy(perfParameter);
+			uneditedPerfParameter = angular.copy(perfParameter);
 			perfParameter.isEdit = true;
+			$scope.isPerfParaEditOrAddInProgress = true;
+			$scope.fetchPerfParaTypes(perfParameter.perfParaName.id, perfParameterId);
 		};
 
 		$scope.deletePerfParameter = function (perfParameterId) {

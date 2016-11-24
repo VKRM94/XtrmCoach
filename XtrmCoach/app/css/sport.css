@@ -9,6 +9,14 @@
 	height: 100%;
 }
 
+.item-header {
+	border-radius: 4px;
+	margin-top: 10px;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.4);
+	overflow: auto;
+}
+
 .sport-item-container {
 	border: solid 1px black;
 	border-radius: 4px;
@@ -59,4 +67,12 @@
 	padding: 3px;
 	font-size: 1vw;
 	font-weight: bold;
+}
+
+.btn-primary[disabled] {
+	color: white;
+}
+
+.disableLink {
+	cursor: not-allowed;
 }
