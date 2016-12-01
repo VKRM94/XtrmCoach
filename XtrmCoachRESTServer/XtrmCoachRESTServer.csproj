@@ -122,6 +122,8 @@
     <Compile Include="Controller\PerformanceParameterController.cs" />
     <Compile Include="Controller\PerformanceParameterNameController.cs" />
     <Compile Include="Controller\PerformanceParameterTypeController.cs" />
+    <Compile Include="Controller\PlayerController.cs" />
+    <Compile Include="Controller\PlayerImageController.cs" />
     <Compile Include="Controller\SignupController.cs" />
     <Compile Include="Controller\SportController.cs" />
     <Compile Include="Global.asax.cs">

@@ -77,6 +77,7 @@
     <Compile Include="ControllerTest\PerformanceParameterControllerTest.cs" />
     <Compile Include="ControllerTest\PerformanceParameterNameControllerTest.cs" />
     <Compile Include="ControllerTest\PerformanceParameterTypeControllerTest.cs" />
+    <Compile Include="ControllerTest\PlayerControllerTest.cs" />
     <Compile Include="ControllerTest\SignupControllerTest.cs" />
     <Compile Include="ControllerTest\LoginControllerTest.cs" />
     <Compile Include="ControllerTest\SportControllerTest.cs" />
