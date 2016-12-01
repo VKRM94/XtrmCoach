@@ -109,3 +109,23 @@ CREATE TABLE perf_para (
 	FOREIGN KEY	(type_id)
 	REFERENCES	perf_para_type(id)
 );
+
+CREATE TABLE player (
+	id					INT				PRIMARY KEY		AUTO_INCREMENT				,
+	first_name			VARCHAR(255)										NOT NULL,
+	last_name			VARCHAR(255)										NOT NULL,
+	dob					DATE												NOT NULL,
+	image_id			VARCHAR(255)
+);
+
+CREATE TABLE sport_player_link (
+	id					INT				PRIMARY KEY		AUTO_INCREMENT				,
+	sport_id			INT													NOT NULL,
+	player_id			INT													NOT NULL,
+	CONSTRAINT	sport_player_link_fk_sport
+	FOREIGN KEY	(sport_id)
+	REFERENCES	sport(id),
+	CONSTRAINT	sport_player_link_fk_player
+	FOREIGN KEY	(player_id)
+	REFERENCES	player(id)
+);

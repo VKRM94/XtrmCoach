@@ -25,6 +25,7 @@ CREATE TABLE sport (
 );
 
 INSERT INTO sport (name, user_id) VALUES ('Sport 1', 1);
+INSERT INTO sport (name, user_id) VALUES ('Sport 2', 1);
 
 CREATE TABLE perf_para_name (
 	id					INT				PRIMARY KEY		AUTO_INCREMENT				,
@@ -113,3 +114,30 @@ CREATE TABLE perf_para (
 );
 
 INSERT INTO perf_para (sport_id, name_id, custom_name, type_id) VALUES (1, 1, '', 1);
+
+CREATE TABLE player (
+	id					INT				PRIMARY KEY		AUTO_INCREMENT				,
+	first_name			VARCHAR(255)										NOT NULL,
+	last_name			VARCHAR(255)										NOT NULL,
+	dob					DATE												NOT NULL,
+	image_id			VARCHAR(255)
+);
+
+INSERT INTO player (first_name, last_name, dob, image_id) VALUES ('FirstName1', 'LastName1', '2016-11-25', '1');
+INSERT INTO player (first_name, last_name, dob, image_id) VALUES ('FirstName2', 'LastName2', '2016-11-25', '2');
+
+CREATE TABLE sport_player_link (
+	id					INT				PRIMARY KEY		AUTO_INCREMENT				,
+	sport_id			INT													NOT NULL,
+	player_id			INT													NOT NULL,
+	CONSTRAINT	sport_player_link_fk_sport
+	FOREIGN KEY	(sport_id)
+	REFERENCES	sport(id),
+	CONSTRAINT	sport_player_link_fk_player
+	FOREIGN KEY	(player_id)
+	REFERENCES	player(id)
+);
+
+INSERT INTO sport_player_link (sport_id, player_id) VALUES (1, 1);
+INSERT INTO sport_player_link (sport_id, player_id) VALUES (1, 2);
+INSERT INTO sport_player_link (sport_id, player_id) VALUES (2, 2);
