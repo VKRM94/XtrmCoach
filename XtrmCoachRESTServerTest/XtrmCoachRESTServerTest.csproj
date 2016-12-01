@@ -83,10 +83,12 @@
     <Compile Include="ModelTest\PerformanceParameterNameTest.cs" />
     <Compile Include="ModelTest\PerformanceParameterTest.cs" />
     <Compile Include="ModelTest\PerformanceParameterTypeTest.cs" />
+    <Compile Include="ModelTest\PlayerTest.cs" />
     <Compile Include="ModelTest\SportTest.cs" />
     <Compile Include="RepositoryIntegrationTest\PerformanceParameterNameRepositoryTest.cs" />
     <Compile Include="RepositoryIntegrationTest\PerformanceParameterRepositoryTest.cs" />
     <Compile Include="RepositoryIntegrationTest\PerformanceParameterTypeRepositoryTest.cs" />
+    <Compile Include="RepositoryIntegrationTest\PlayerRepositoryTest.cs" />
     <Compile Include="RepositoryIntegrationTest\SportRepositoryTest.cs" />
     <Compile Include="RepositoryIntegrationTest\UserRepositoryTest.cs" />
     <Compile Include="UtilTest\HelperTest.cs" />
