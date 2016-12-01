@@ -1,6 +1,6 @@
 ﻿(function () {
 	'use strict';
-	var app = angular.module('app', ['ngCookies', 'ui.router']);
+	var app = angular.module('app', ['ngCookies', 'ui.router', 'angularjs-dropdown-multiselect']);
 
 	app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
 		$stateProvider
@@ -42,10 +42,10 @@
 			controller: 'playerController',
 			templateUrl: 'app/views/players.html'
 		})
-		.state('dashboard.teams', {
-			url: '/teams',
-			controller: 'teamController',
-			templateUrl: 'app/views/teams.html'
+		.state('dashboard.evaluate', {
+			url: '/evaluate',
+			controller: 'evaluateController',
+			templateUrl: 'app/views/evaluate.html'
 		});
 
 		$urlRouterProvider.otherwise('home');

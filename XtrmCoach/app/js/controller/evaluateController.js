@@ -2,16 +2,18 @@
 	'use strict';
 	angular
 		.module('app')
-		.controller('playerController', playerController);
+		.controller('evaluateController', evaluateController);
 
-	function playerController($scope, $location, $rootScope, $cookieStore, $state, sportService, playerService, imageUploadService) {
+	function evaluateController($scope, $location, $rootScope, $cookieStore, $state, sportService, playerService, imageUploadService) {
 		$rootScope.bodyLayout = 'dashboard-body';
-		$rootScope.masterHeaderTitle = 'Players';
-		$scope.currentPlayerImageSource = '';
+		$rootScope.masterHeaderTitle = 'Evaluate Player';
 
 		$scope.sports = [];
 		$scope.players = [];
 
+		// TODO: Remove this
+		$rootScope.showDashboardLoader = false;
+		/*
 		var getPlayerModel = function () {
 			return {
 				id: 0,
@@ -136,8 +138,11 @@
 				}
 			});
 		};
+
+		*/
 	}
 
+	/*
 	angular
 		.module('app')
 		.filter('showAssociatedPlayer', function () {
@@ -154,4 +159,5 @@
 				return filtered;
 			};
 		});
+		*/
 })();

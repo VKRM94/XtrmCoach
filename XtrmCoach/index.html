@@ -11,6 +11,7 @@
 	<link rel="stylesheet" href="app/css/home.css" />
 	<link rel="stylesheet" href="app/css/dashboard.css" />
 	<link rel="stylesheet" href="app/css/sport.css" />
+	<link rel="stylesheet" href="app/css/player.css" />
 	<link rel="stylesheet" href="Content/ionicons.min.css" />
 
 	<link href="https://fonts.googleapis.com/css?family=Allerta+Stencil" rel="stylesheet">
@@ -19,21 +20,28 @@
 	<script src="Scripts/angular-cookies.min.js"></script>
 	<script src="Scripts/angular-ui-router.min.js"></script>
 
-	<script src="app/app.module.js"></script>
-
 	<script src="Scripts/jquery-1.9.1.min.js"></script>
 	<script src="Scripts/bootstrap.min.js"></script>
+
+	<script src="Scripts/lodash.min.js"></script>
+	<script src="Scripts/angularjs-dropdown-multiselect.js"></script>
+
+	<script src="app/app.module.js"></script>
 
 	<script src="app/js/service/loginService.js"></script>
 	<script src="app/js/service/signupService.js"></script>
 	<script src="app/js/service/sportService.js"></script>
+	<script src="app/js/service/playerService.js"></script>
+	<script src="app/js/service/imageUploadService.js"></script>
+
+	<script src="app/js/directive/imageUploadDirective.js"></script>
 
 	<script src="app/js/controller/homeController.js"></script>
 	<script src="app/js/controller/signupController.js"></script>
 	<script src="app/js/controller/dashboardController.js"></script>
 	<script src="app/js/controller/sportController.js"></script>
 	<script src="app/js/controller/playerController.js"></script>
-	<script src="app/js/controller/teamController.js"></script>
+	<script src="app/js/controller/evaluateController.js"></script>
 </head>
 
 <body ng-app="app" class="{{bodyLayout}} app-container">

@@ -32,8 +32,13 @@
 		};
 
 		$scope.goToPlayer = function () {
-			$rootScope.showDashboardLoader = false;
+			$rootScope.showDashboardLoader = true;
 			$state.go('dashboard.players');
+		};
+
+		$scope.goToEvaluate = function () {
+			$rootScope.showDashboardLoader = true;
+			$state.go('dashboard.evaluate');
 		};
 
 		$scope.logout = function () {

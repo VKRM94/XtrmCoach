@@ -1,0 +1,289 @@
+﻿.btn-player {
+	width: 18vw;
+	font-size: 1vw;
+}
+
+.player-container {
+	overflow-y: auto;
+	width: 100%;
+	height: 100%;
+}
+
+.player-sport-header {
+	width: 100%;
+	border-radius: 4px;
+	margin-top: 10px;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.4);
+	overflow: auto;
+	text-align: center;
+}
+
+.player-sport-header-content {
+	float: left;
+	width: 100%;
+	padding: 10px;
+	font-size: 1vw;
+	font-weight: bold;
+}
+
+.player-item {
+	width: 10vw;
+	height: 12vw;
+	margin: 1vw;
+	float: left;
+	position: relative;
+
+	/*border: solid 1px black;*/
+}
+
+
+.player-item-image {
+	width: 100%;
+	height: 10vw;
+	border-radius: 50%;
+	box-shadow: 0 1px 3px 0 rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 2px 1px -1px rgba(0,0,0,.12);
+	/*border: solid 1px black;*/
+}
+
+.player-item-label {
+	width: 100%;
+	height: 2vw;
+	margin-top: 0.5vw;
+	font-size: 1vw;
+	font-weight: bold;
+	color: grey;
+	text-align: center;
+	/*border: solid 1px black;*/
+}
+
+.player-item-edit-delete {
+	position: absolute;
+	top: 0;
+	width: 10vw;
+	height: 10vw;
+	border-radius: 50%;
+	background: rgba(0, 0, 0, 0.5);
+}
+
+.player-item-edit-delete-buttons {
+	position: absolute;
+	top: 38%;
+	left: 27%
+	/*top: 5%;*/
+	/*right: 5%;*/
+}
+
+.player-item-icon {
+	float: left;
+	font-size: 2vw;
+	margin-right: 1.5vw;
+	color: rgba(255, 255, 255, 0.6);
+}
+
+	.player-item-icon:hover {
+		color: rgba(255, 255, 255, 0.8);
+		cursor: pointer;
+	}
+
+.add-edit-player-container {
+	position: absolute;
+	width: calc(92% - 15px);
+	height: calc(90% - 30px);
+	top: calc(10% + 15px);
+	background: rgba(0, 0, 0, 0.6);
+	left: 8%;
+}
+
+.add-edit-player-dialog {
+	background: rgba(238, 238, 238, 0.9);
+	width: 40%;
+	height: 50%;
+	position: absolute;
+	top: 25%;
+	left: 30%;
+}
+
+.add-edit-player-header {
+	width: 100%;
+	height: 10%;
+	/*border: solid 1px black;*/
+
+	color: white;
+	background-color: rgba(0, 0, 0, 0.4);
+	text-align: center;
+	padding: 1vh;
+	font-size: 1vw;
+	font-weight: bold;
+}
+
+.add-edit-player-body {
+	width: 100%;
+	height: 80%;
+	/*border: solid 1px black;*/
+}
+
+.add-edit-player-image-section {
+	width: 50%;
+	height: 100%;
+	float: left;
+	padding: 10px;
+	/*border: solid 1px black;*/
+}
+
+	.add-edit-player-image-section .add-edit-player-image {
+		width: 100%;
+		height: 85%;
+
+		border-radius: 4px 4px 0px 0px;
+	}
+
+	.add-edit-player-image-section .add-edit-player-image-select {
+		width: 100%;
+		height: 15%;
+		border-radius: 0px 0px 4px 4px;
+	}
+
+.add-edit-player-details-section {
+	width: 50%;
+	height: 100%;
+	float: left;
+	padding: 10px;
+	/*border: solid 1px black;*/
+}
+
+.add-edit-player-details-item {
+	width: 100%;
+}
+
+.dropdown-multiselect {
+	width: 100% !important;
+}
+
+.dropdown-toggle {
+	width: 100% !important;
+	text-align: left !important;
+}
+
+.add-edit-player-body {
+	width: 100%;
+	height: 75%;
+	/*border: solid 1px black;*/
+}
+
+.add-edit-player-footer {
+	width: 100%;
+	height: 15%;
+	/*border: solid 1px black;*/
+}
+
+.add-edit-player-footer-ok {
+	float: left;
+	width: 50%;
+	height: 100%;
+	padding: 1vh 1vh 1vh 1vh;
+}
+
+.add-edit-player-footer-cancel {
+	float: left;
+	width: 50%;
+	height: 100%;
+	padding: 1vh 1vh 1vh 1vh;
+}
+
+.margin-bottom-10px {
+	margin-bottom: 10px;
+}
+
+.margin-bottom-1vh {
+	margin-bottom: 1vh;
+}
+
+/*
+.add-edit-player-header {
+	width: 100%;
+	margin-bottom: 10px;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.4);
+	text-align: center;
+	padding: 10px;
+	font-size: 1vw;
+	font-weight: bold;
+}
+
+.add-edit-player-image-section {
+	float: left;
+	width: 50%;
+}
+
+.add-edit-player-details-section {
+	float: left;
+	width: 50%;
+}
+
+.add-edit-player-image {
+	width: 80%;
+	height: 80%;
+	text-align: center;
+}
+	*/
+
+/*.sport-item-container {
+	border: solid 1px black;
+	border-radius: 4px;
+	margin-top: 10px;
+	overflow: auto;
+}*/
+
+/*.sport-item-name {
+	float: left;
+	width: 88%;
+	padding: 10px;
+	font-size: 1vw;
+	font-weight: bold;
+}
+
+.sport-item-name-edit {
+	float: left;
+	width: 92%;
+	padding: 3px;
+	font-size: 1vw;
+	font-weight: bold;
+}
+
+.sport-item-icon {
+	float: left;
+	font-size: calc(1vw + 7px);
+	padding: 5px;
+	width: 4%;
+	text-align: center;
+}
+
+	.sport-item-icon:hover {
+		color: rgba(0, 0, 0, 0.6);
+		cursor: pointer;
+	}
+
+.sport-item {
+	float: left;
+	width: 100%;
+	padding: 10px;
+	font-size: 1vw;
+	font-weight: bold;
+}
+
+.para-item-edit {
+	float: left;
+	width: 30%;
+	padding: 3px;
+	font-size: 1vw;
+	font-weight: bold;
+}
+
+.btn-primary[disabled] {
+	color: white;
+}
+
+.disableLink {
+	cursor: not-allowed;
+}*/

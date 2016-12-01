@@ -67,22 +67,29 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\css\dashboard.css" />
+    <Content Include="app\css\player.css" />
     <Content Include="app\css\sport.css" />
     <Content Include="app\image\prod_bg.jpg" />
+    <Content Include="app\js\controller\evaluateController.js" />
     <Content Include="app\js\controller\teamController.js" />
     <Content Include="app\js\controller\playerController.js" />
     <Content Include="app\js\controller\sportController.js" />
     <Content Include="app\js\controller\signupController.js" />
     <Content Include="app\js\controller\dashboardController.js" />
+    <Content Include="app\js\directive\imageUploadDirective.js" />
+    <Content Include="app\js\service\imageUploadService.js" />
+    <Content Include="app\js\service\playerService.js" />
     <Content Include="app\js\service\sportService.js" />
     <Content Include="app\js\service\loginService.js" />
     <Content Include="app\js\service\signupService.js" />
+    <Content Include="app\views\evaluate.html" />
     <Content Include="app\views\players.html" />
     <Content Include="app\views\signup.html" />
     <Content Include="app\views\dashboard.html" />
     <Content Include="app\views\home.html" />
     <Content Include="app\views\sports.html" />
     <Content Include="app\views\teams.html" />
+    <Content Include="Scripts\angularjs-dropdown-multiselect.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -98,15 +105,12 @@
     <Content Include="Scripts\angular-cookies.js" />
     <Content Include="Scripts\angular-cookies.min.js" />
     <Content Include="Scripts\angular-mocks.js" />
-    <Content Include="Scripts\angular-route.js" />
-    <Content Include="Scripts\angular-route.min.js" />
     <Content Include="Scripts\angular-ui-router.js" />
     <Content Include="Scripts\angular-ui-router.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="app\app.module.js" />
-    <Content Include="Scripts\angular-route.min.js.map" />
     <Content Include="Scripts\angular-cookies.min.js.map" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -134,6 +138,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\js\controller\homeController.js" />
+    <Content Include="Scripts\lodash.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
