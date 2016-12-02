@@ -25,6 +25,7 @@ namespace XtrmCoachRESTServer
 			}
 		}
 
+		/*
 		public ArrayList GetPerformanceParameters()
 		{
 			String sqlStr = "select pp.id, pp.sport_id, pp.name_id, ppn.name, pp.custom_name, pp.type_id, ppt.name from perf_para pp join perf_para_name ppn on pp.name_id = ppn.id join perf_para_type ppt on pp.type_id = ppt.id";
@@ -54,10 +55,11 @@ namespace XtrmCoachRESTServer
 			sqlReader.Close();
 			return performanceParameters;
 		}
+		*/
 
 		public ArrayList GetPerformanceParameters(long sportsId)
 		{
-			String sqlStr = "select pp.id, pp.sport_id, pp.name_id, ppn.name, pp.custom_name, pp.type_id, ppt.name from perf_para pp join perf_para_name ppn on pp.name_id = ppn.id join perf_para_type ppt on pp.type_id = ppt.id where pp.sport_id = " + sportsId;
+			String sqlStr = "select pp.id, pp.sport_id, pp.name_id, ppn.name, pp.custom_name, pp.group_id, ppt.name from perf_para pp join perf_para_name ppn on pp.name_id = ppn.id join (SELECT group_id, GROUP_CONCAT(name separator ', ') as name FROM perf_para_type GROUP BY group_id) as ppt on pp.group_id = ppt.group_id where pp.sport_id = " + sportsId;
 			MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
 			MySqlDataReader sqlReader = cmd.ExecuteReader();
 			ArrayList performanceParameters = new ArrayList();
@@ -74,9 +76,9 @@ namespace XtrmCoachRESTServer
 				pp.perfParaName.name = sqlReader.GetString(3);
 				pp.customName = sqlReader.GetString(4);
 
-				pp.perfParaType = new PerformanceParameterType();
-				pp.perfParaType.id = sqlReader.GetInt32(5);
-				pp.perfParaType.name = sqlReader.GetString(6);
+				pp.perfParaTypeGroup = new PerformanceParameterTypeGroup();
+				pp.perfParaTypeGroup.id = sqlReader.GetInt32(5);
+				pp.perfParaTypeGroup.name = sqlReader.GetString(6);
 
 				performanceParameters.Add(pp);
 			}
@@ -87,7 +89,7 @@ namespace XtrmCoachRESTServer
 
 		public PerformanceParameter GetPerformanceParameter(long performanceParameterId)
 		{
-			String sqlStr = "select pp.id, pp.sport_id, pp.name_id, ppn.name, pp.custom_name, pp.type_id, ppt.name from perf_para pp join perf_para_name ppn on pp.name_id = ppn.id join perf_para_type ppt on pp.type_id = ppt.id WHERE pp.id = " + performanceParameterId;
+			String sqlStr = "select pp.id, pp.sport_id, pp.name_id, ppn.name, pp.custom_name, pp.group_id, GROUP_CONCAT(ppt.name separator ', ') from perf_para pp join perf_para_name ppn on pp.name_id = ppn.id join perf_para_type ppt on pp.group_id = ppt.group_id WHERE pp.id = " + performanceParameterId;
 			MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
 			MySqlDataReader sqlReader = cmd.ExecuteReader();
 			PerformanceParameter pp = null;
@@ -103,9 +105,9 @@ namespace XtrmCoachRESTServer
 				pp.perfParaName.name = sqlReader.GetString(3);
 				pp.customName = sqlReader.GetString(4);
 
-				pp.perfParaType = new PerformanceParameterType();
-				pp.perfParaType.id = sqlReader.GetInt32(5);
-				pp.perfParaType.name = sqlReader.GetString(6);
+				pp.perfParaTypeGroup = new PerformanceParameterTypeGroup();
+				pp.perfParaTypeGroup.id = sqlReader.GetInt32(5);
+				pp.perfParaTypeGroup.name = sqlReader.GetString(6);
 			}
 
 			sqlReader.Close();
@@ -114,7 +116,7 @@ namespace XtrmCoachRESTServer
 
 		public long InsertPerformanceParameter(PerformanceParameter performanceParameter)
 		{
-			String sqlStr = "INSERT INTO perf_para (sport_id, name_id, custom_name, type_id) VALUES (" + performanceParameter.sportId + ", " + performanceParameter.perfParaName.id + ", '" + performanceParameter.customName + "', " + performanceParameter.perfParaType.id + ")";
+			String sqlStr = "INSERT INTO perf_para (sport_id, name_id, custom_name, group_id) VALUES (" + performanceParameter.sportId + ", " + performanceParameter.perfParaName.id + ", '" + performanceParameter.customName + "', " + performanceParameter.perfParaTypeGroup.id + ")";
 			MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
 			try
 			{
@@ -159,7 +161,7 @@ namespace XtrmCoachRESTServer
 			{
 				sqlReader.Close();
 
-				sqlStr = "UPDATE perf_para SET name_id = " + performanceParameter.perfParaName.id + ", custom_name = '" + performanceParameter.customName + "', type_id = " + performanceParameter.perfParaType.id + " WHERE id = " + performanceParameter.id;
+				sqlStr = "UPDATE perf_para SET name_id = " + performanceParameter.perfParaName.id + ", custom_name = '" + performanceParameter.customName + "', group_id = " + performanceParameter.perfParaTypeGroup.id + " WHERE id = " + performanceParameter.id;
 				cmd = new MySqlCommand(sqlStr, conn);
 				cmd.ExecuteNonQuery();
 

@@ -1,10 +1,8 @@
 ﻿namespace XtrmCoachRESTServer.Models
 {
-	public class PerformanceParameterType
+	public class PerformanceParameterTypeGroup
 	{
 		public long id { get; set; }
-
-		public long groupId { get; set; }
 
 		public string name { get; set; }
 
@@ -15,14 +13,13 @@
 				return false;
 			}
 
-			PerformanceParameterType s = obj as PerformanceParameterType;
+			PerformanceParameterTypeGroup s = obj as PerformanceParameterTypeGroup;
 			if ((System.Object)s == null)
 			{
 				return false;
 			}
 
 			if (this.id != s.id) return false;
-			if (this.groupId != s.groupId) return false;
 			if (this.name != s.name) return false;
 
 			return true;

@@ -6,7 +6,7 @@
 		public long sportId { get; set; }
 		public PerformanceParameterName perfParaName { get; set; }
 		public string customName { get; set; }
-		public PerformanceParameterType perfParaType { get; set; }
+		public PerformanceParameterTypeGroup perfParaTypeGroup { get; set; }
 
 		public override bool Equals(object obj)
 		{
@@ -25,8 +25,8 @@
 			if (this.sportId != s.sportId) return false;
 			if (this.perfParaName.id != s.perfParaName.id) return false;
 			if (this.perfParaName.name != s.perfParaName.name) return false;
-			if (this.perfParaType.id != s.perfParaType.id) return false;
-			if (this.perfParaType.name != s.perfParaType.name) return false;
+			if (this.perfParaTypeGroup.id != s.perfParaTypeGroup.id) return false;
+			if (this.perfParaTypeGroup.name != s.perfParaTypeGroup.name) return false;
 			if (this.customName != s.customName) return false;
 
 			return true;

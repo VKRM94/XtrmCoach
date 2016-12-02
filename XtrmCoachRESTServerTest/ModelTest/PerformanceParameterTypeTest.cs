@@ -34,10 +34,12 @@ namespace XtrmCoachRESTServerTest
 
 				// Act
 				performanceParameterType.id = 1;
+				performanceParameterType.groupId = 1;
 				performanceParameterType.name = "parameterType";
 
 				// Assert
 				Assert.AreEqual<long>(performanceParameterType.id, 1);
+				Assert.AreEqual<long>(performanceParameterType.groupId, 1);
 				Assert.AreEqual<string>(performanceParameterType.name, "parameterType");
 			}
 			catch (Exception)

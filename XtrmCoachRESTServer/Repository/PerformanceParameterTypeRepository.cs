@@ -27,7 +27,7 @@ namespace XtrmCoachRESTServer
 
 		public ArrayList GetPerformanceParameterTypes(long performanceParameterNameId)
 		{
-			String sqlStr = "SELECT id, name FROM perf_para_type WHERE id IN (SELECT type_id FROM perf_para_link WHERE name_id = " + performanceParameterNameId + ")";
+			String sqlStr = "SELECT id, group_id, name FROM perf_para_type WHERE group_id IN (SELECT group_id FROM perf_para_link WHERE name_id = " + performanceParameterNameId + ")";
 			MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
 			MySqlDataReader sqlReader = cmd.ExecuteReader();
 			ArrayList performanceParameterTypes = new ArrayList();
@@ -37,7 +37,8 @@ namespace XtrmCoachRESTServer
 			{
 				pp = new PerformanceParameterType();
 				pp.id = sqlReader.GetInt32(0);
-				pp.name = sqlReader.GetString(1);
+				pp.groupId = sqlReader.GetInt32(1);
+				pp.name = sqlReader.GetString(2);
 				performanceParameterTypes.Add(pp);
 			}
 

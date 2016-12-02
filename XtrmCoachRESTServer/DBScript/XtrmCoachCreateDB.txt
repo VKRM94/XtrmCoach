@@ -38,36 +38,48 @@ INSERT INTO perf_para_name (name) VALUES
 
 CREATE TABLE perf_para_type (
 	id					INT				PRIMARY KEY		AUTO_INCREMENT				,
+	group_id			INT													NOT NULL,
 	name				VARCHAR(255)										NOT NULL
 );
 
-INSERT INTO perf_para_type (name) VALUES 
-('km/hr'), 
-('miles/hr'), 
-('mtr/hr'), 
-('mtr/sec'), 
-('sec'), 
-('min:sec'), 
-('hr:min:sec'), 
-('km'), 
-('miles'), 
-('mtr'), 
-('1 - 10'), 
-('Good, Avg, Poor');
+INSERT INTO perf_para_type (group_id, name) VALUES 
+(1, 'km/hr'), 
+(2, 'miles/hr'), 
+(3, 'mtr/hr'), 
+(4, 'mtr/sec'), 
+(5, 'sec'), 
+(6, 'min:sec'), 
+(7, 'hr:min:sec'), 
+(8, 'km'), 
+(9, 'miles'), 
+(10, 'mtr'), 
+(11, '1'), 
+(11, '2'), 
+(11, '3'), 
+(11, '4'), 
+(11, '5'), 
+(11, '6'), 
+(11, '7'), 
+(11, '8'), 
+(11, '9'), 
+(11, '10'), 
+(12, 'Good'), 
+(12, 'Avg'), 
+(12, 'Poor');
 
 CREATE TABLE perf_para_link (
 	id					INT				PRIMARY KEY		AUTO_INCREMENT				,
 	name_id				INT													NOT NULL,
-	type_id				INT													NOT NULL,
+	group_id			INT													NOT NULL,
 	CONSTRAINT	perf_para_link_fk_perf_para_name
 	FOREIGN KEY	(name_id)
 	REFERENCES	perf_para_name(id),
 	CONSTRAINT	perf_para_link_fk_perf_para_type
-	FOREIGN KEY	(type_id)
-	REFERENCES	perf_para_type(id)
+	FOREIGN KEY	(group_id)
+	REFERENCES	perf_para_type(group_id)
 );
 
-INSERT INTO perf_para_link (name_id, type_id) VALUES 
+INSERT INTO perf_para_link (name_id, group_id) VALUES 
 (1, 1), 
 (1, 2), 
 (1, 3), 
@@ -98,7 +110,7 @@ CREATE TABLE perf_para (
 	sport_id			INT													NOT NULL,
 	name_id				INT													NOT NULL,
 	custom_name			VARCHAR(255)										NOT NULL,
-	type_id				INT													NOT NULL,
+	group_id			INT													NOT NULL,
 	CONSTRAINT	perf_para_fk_sport
 	FOREIGN KEY	(sport_id)
 	REFERENCES	sport(id),
@@ -106,8 +118,8 @@ CREATE TABLE perf_para (
 	FOREIGN KEY	(name_id)
 	REFERENCES	perf_para_name(id),
 	CONSTRAINT	perf_para_fk_perf_para_type
-	FOREIGN KEY	(type_id)
-	REFERENCES	perf_para_type(id)
+	FOREIGN KEY	(group_id)
+	REFERENCES	perf_para_type(group_id)
 );
 
 CREATE TABLE player (

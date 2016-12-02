@@ -8,11 +8,73 @@
 		$rootScope.bodyLayout = 'dashboard-body';
 		$rootScope.masterHeaderTitle = 'Evaluate Player';
 
-		$scope.sports = [];
-		$scope.players = [];
+		// TODO: Uncomment this later
+		//$scope.sports = [];
+		//$scope.players = [];
 
-		// TODO: Remove this
+		//sportService.getSports(function (sports, status) {
+		//	if (status == 200) {
+		//		$scope.sports = sports;
+
+		//		playerService.getPlayers($rootScope.user.id, function (players, status) {
+		//			$scope.players = players;
+		//			$rootScope.showDashboardLoader = false;
+		//		});
+		//	}
+		//});
+
+		// Temp
+		$scope.sports = [{
+			id: 1,
+			name: 'Sport 1',
+			userId: 1
+		}, {
+			id: 2,
+			name: 'Sport 2',
+			userId: 1
+		}];
+
 		$rootScope.showDashboardLoader = false;
+
+		$scope.players = [{
+			id: 1,
+			firstName: 'Atul',
+			lastName: 'Banwar',
+			imageId: 'A11428632.jpg',
+			sports: [{
+				id: 1,
+				name: 'sport 1',
+				userId: 1
+			}, {
+				id: 2,
+				name: 'sport 2',
+				userId: 1
+			}]
+		}, {
+			id: 2,
+			firstName: 'Tushar',
+			lastName: 'Bhat',
+			imageId: 'A22314817.jpg',
+			sports: [{
+				id: 1,
+				name: 'sport 1',
+				userId: 1
+			}]
+		}];
+
+		$scope.selectedSportId = 0;
+		$scope.selectedPlayerId = 0;
+
+		$scope.updateSelectedSport = function (sportId) {
+			$scope.selectedSportId = sportId;
+			$scope.selectedPlayerId = 0;
+		};
+
+		$scope.updateSelectedPlayer = function (playerId) {
+			$scope.selectedPlayerId = playerId;
+		};
+
+
 		/*
 		var getPlayerModel = function () {
 			return {
@@ -43,17 +105,7 @@
 
 		$scope.isPlayerAddOrEditInProgress = false;
 
-		sportService.getSports(function (sports, status) {
-			$scope.sports = sports;
-		});
-
-		var getPlayers = function () {
-			playerService.getPlayers($rootScope.user.id, function (players, status) {
-				$scope.players = players;
-				$rootScope.showDashboardLoader = false;
-			});
-		};
-		getPlayers();
+		
 
 		$scope.addNewPlayer = function () {
 			$scope.currentPlayer = getPlayerModel();

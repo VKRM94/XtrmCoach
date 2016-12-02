@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\css\dashboard.css" />
+    <Content Include="app\css\evaluate.css" />
     <Content Include="app\css\player.css" />
     <Content Include="app\css\sport.css" />
     <Content Include="app\image\prod_bg.jpg" />
@@ -77,6 +78,7 @@
     <Content Include="app\js\controller\signupController.js" />
     <Content Include="app\js\controller\dashboardController.js" />
     <Content Include="app\js\directive\imageUploadDirective.js" />
+    <Content Include="app\js\filter\customFilter.js" />
     <Content Include="app\js\service\imageUploadService.js" />
     <Content Include="app\js\service\playerService.js" />
     <Content Include="app\js\service\sportService.js" />

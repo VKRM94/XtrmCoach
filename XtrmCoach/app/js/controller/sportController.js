@@ -13,7 +13,7 @@
 		$scope.showParameters = false;
 		$scope.perfParameters = [];
 		$scope.perfParaNames = [];
-		$scope.perfParaTypes = [];
+		$scope.perfParaTypeGroups = [];
 		var uneditedPerfParameter = {};
 		$scope.currentSportId = 0;
 		$scope.isPerfParaEditOrAddInProgress = false;
@@ -81,29 +81,29 @@
 			$scope.perfParaNames = perfParaNames;
 		});
 
-		sportService.getPerfParaTypes(5, function (perfParaTypes, status) {
+		sportService.getPerfParaTypeGroups(5, function (perfParaTypeGroups, status) {
 			if (status == 200) {
-				$scope.perfParaTypes = perfParaTypes;
+				$scope.perfParaTypeGroups = perfParaTypeGroups;
 			}
 		});
 
-		$scope.fetchPerfParaTypes = function (perfParaNameId, perfParaId) {
+		$scope.fetchPerfParaTypeGroups = function (perfParaNameId, perfParaId) {
 			if (perfParaNameId != 0) {
-				sportService.getPerfParaTypes(perfParaNameId, function (perfParaTypes, status) {
+				sportService.getPerfParaTypeGroups(perfParaNameId, function (perfParaTypeGroups, status) {
 					if (status == 200) {
-						$scope.perfParaTypes = perfParaTypes;
+						$scope.perfParaTypeGroups = perfParaTypeGroups;
 
 						if (perfParaId != null) {
 							for (var perfParaIndex = 0; perfParaIndex < $scope.perfParameters.length; perfParaIndex++) {
 								if (perfParaId == $scope.perfParameters[perfParaIndex].id) {
-									for (var perfParaTypeIndex = 0; perfParaTypeIndex < $scope.perfParaTypes.length; perfParaTypeIndex++) {
-										if ($scope.perfParameters[perfParaIndex].perfParaType.id == $scope.perfParaTypes[perfParaTypeIndex].id) {
-											$scope.perfParameters[perfParaIndex].perfParaType = $scope.perfParaTypes[perfParaTypeIndex];
+									for (var perfParaTypeGroupIndex = 0; perfParaTypeGroupIndex < $scope.perfParaTypeGroups.length; perfParaTypeGroupIndex++) {
+										if ($scope.perfParameters[perfParaIndex].perfParaTypeGroup.id == $scope.perfParaTypeGroups[perfParaTypeGroupIndex].id) {
+											$scope.perfParameters[perfParaIndex].perfParaTypeGroup = $scope.perfParaTypeGroups[perfParaTypeGroupIndex];
 											break;
 										}
 									}
 
-									for (var perfParaNameIndex = 0; perfParaNameIndex < $scope.perfParaTypes.length; perfParaNameIndex++) {
+									for (var perfParaNameIndex = 0; perfParaNameIndex < $scope.perfParaTypeGroups.length; perfParaNameIndex++) {
 										if ($scope.perfParameters[perfParaIndex].perfParaName.id == $scope.perfParaNames[perfParaNameIndex].id) {
 											$scope.perfParameters[perfParaIndex].perfParaName = $scope.perfParaNames[perfParaNameIndex];
 											break;
@@ -138,7 +138,7 @@
 					name: ''
 				},
 				customName: '',
-				perfParaName: {
+				perfParaTypeGroup: {
 					id: 0,
 					name: ''
 				},
@@ -171,7 +171,7 @@
 				$scope.perfParameters.pop(perfParameter);
 			} else {
 				perfParameter.perfParaName = uneditedPerfParameter.perfParaName;
-				perfParameter.perfParaType = uneditedPerfParameter.perfParaType;
+				perfParameter.perfParaTypeGroup = uneditedPerfParameter.perfParaTypeGroup;
 				perfParameter.isEdit = false;
 			}
 
@@ -183,7 +183,7 @@
 			uneditedPerfParameter = angular.copy(perfParameter);
 			perfParameter.isEdit = true;
 			$scope.isPerfParaEditOrAddInProgress = true;
-			$scope.fetchPerfParaTypes(perfParameter.perfParaName.id, perfParameterId);
+			$scope.fetchPerfParaTypeGroups(perfParameter.perfParaName.id, perfParameterId);
 		};
 
 		$scope.deletePerfParameter = function (perfParameterId) {

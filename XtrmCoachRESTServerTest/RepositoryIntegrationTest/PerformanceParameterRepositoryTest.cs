@@ -39,8 +39,8 @@ namespace XtrmCoachRESTServerTest.RepositoryTest
 				performanceParameterToSave.perfParaName = new PerformanceParameterName();
 				performanceParameterToSave.perfParaName.id = 1;
 				performanceParameterToSave.customName = "custom";
-				performanceParameterToSave.perfParaType = new PerformanceParameterType();
-				performanceParameterToSave.perfParaType.id = 1;
+				performanceParameterToSave.perfParaTypeGroup = new PerformanceParameterTypeGroup();
+				performanceParameterToSave.perfParaTypeGroup.id = 1;
 
 				// Act
 				long performanceParameterId = performanceParameterRepository.InsertPerformanceParameter(performanceParameterToSave);
@@ -51,7 +51,7 @@ namespace XtrmCoachRESTServerTest.RepositoryTest
 				Assert.AreEqual(performanceParameterToSave.sportId, performanceParameterFromDb.sportId);
 				Assert.AreEqual(performanceParameterToSave.perfParaName.id, performanceParameterFromDb.perfParaName.id);
 				Assert.AreEqual(performanceParameterToSave.customName, performanceParameterFromDb.customName);
-				Assert.AreEqual(performanceParameterToSave.perfParaType.id, performanceParameterFromDb.perfParaType.id);
+				Assert.AreEqual(performanceParameterToSave.perfParaTypeGroup.id, performanceParameterFromDb.perfParaTypeGroup.id);
 
 				// Cleanup
 				bool isDeleted = performanceParameterRepository.DeletePerformanceParameter(performanceParameterId);
@@ -75,8 +75,8 @@ namespace XtrmCoachRESTServerTest.RepositoryTest
 				performanceParameterToSave.perfParaName = new PerformanceParameterName();
 				performanceParameterToSave.perfParaName.id = 1;
 				performanceParameterToSave.customName = "custom";
-				performanceParameterToSave.perfParaType = new PerformanceParameterType();
-				performanceParameterToSave.perfParaType.id = 1;
+				performanceParameterToSave.perfParaTypeGroup = new PerformanceParameterTypeGroup();
+				performanceParameterToSave.perfParaTypeGroup.id = 1;
 
 				// Act
 				long performanceParameterId = performanceParameterRepository.InsertPerformanceParameter(performanceParameterToSave);
@@ -87,13 +87,13 @@ namespace XtrmCoachRESTServerTest.RepositoryTest
 				Assert.AreEqual(((PerformanceParameter)performanceParametersFromDb[1]).sportId, performanceParameterToSave.sportId);
 				Assert.AreEqual(((PerformanceParameter)performanceParametersFromDb[1]).perfParaName.id, performanceParameterToSave.perfParaName.id);
 				Assert.AreEqual(((PerformanceParameter)performanceParametersFromDb[1]).customName, performanceParameterToSave.customName);
-				Assert.AreEqual(((PerformanceParameter)performanceParametersFromDb[1]).perfParaType.id, performanceParameterToSave.perfParaType.id);
+				Assert.AreEqual(((PerformanceParameter)performanceParametersFromDb[1]).perfParaTypeGroup.id, performanceParameterToSave.perfParaTypeGroup.id);
 
 				// Cleanup
 				bool isDeleted = performanceParameterRepository.DeletePerformanceParameter(performanceParameterId);
 				Assert.IsTrue(isDeleted);
 			}
-			catch (Exception)
+			catch (Exception ex)
 			{
 				throw new AssertFailedException("Unable to add new performance parameter.");
 			}
@@ -111,16 +111,16 @@ namespace XtrmCoachRESTServerTest.RepositoryTest
 				performanceParameterToSave.perfParaName = new PerformanceParameterName();
 				performanceParameterToSave.perfParaName.id = 1;
 				performanceParameterToSave.customName = "custom";
-				performanceParameterToSave.perfParaType = new PerformanceParameterType();
-				performanceParameterToSave.perfParaType.id = 1;
+				performanceParameterToSave.perfParaTypeGroup = new PerformanceParameterTypeGroup();
+				performanceParameterToSave.perfParaTypeGroup.id = 1;
 
 				PerformanceParameter performanceParameterToUpdate = new PerformanceParameter();
 				performanceParameterToUpdate.sportId = 1;
 				performanceParameterToUpdate.perfParaName = new PerformanceParameterName();
 				performanceParameterToUpdate.perfParaName.id = 2;
 				performanceParameterToUpdate.customName = "custom 2";
-				performanceParameterToUpdate.perfParaType = new PerformanceParameterType();
-				performanceParameterToUpdate.perfParaType.id = 5;
+				performanceParameterToUpdate.perfParaTypeGroup = new PerformanceParameterTypeGroup();
+				performanceParameterToUpdate.perfParaTypeGroup.id = 5;
 
 				// Act
 				long performanceParameterId = performanceParameterRepository.InsertPerformanceParameter(performanceParameterToSave);
@@ -133,7 +133,7 @@ namespace XtrmCoachRESTServerTest.RepositoryTest
 				Assert.AreEqual(performanceParameterFromDb.sportId, performanceParameterToUpdate.sportId);
 				Assert.AreEqual(performanceParameterFromDb.perfParaName.id, performanceParameterToUpdate.perfParaName.id);
 				Assert.AreEqual(performanceParameterFromDb.customName, performanceParameterToUpdate.customName);
-				Assert.AreEqual(performanceParameterFromDb.perfParaType.id, performanceParameterToUpdate.perfParaType.id);
+				Assert.AreEqual(performanceParameterFromDb.perfParaTypeGroup.id, performanceParameterToUpdate.perfParaTypeGroup.id);
 
 				// Cleanup
 				bool isDeleted = performanceParameterRepository.DeletePerformanceParameter(performanceParameterId);

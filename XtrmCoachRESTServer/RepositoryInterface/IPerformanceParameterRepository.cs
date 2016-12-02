@@ -5,7 +5,7 @@ namespace XtrmCoachRESTServer.RepositoryInterface
 {
 	public interface IPerformanceParameterRepository
 	{
-		ArrayList GetPerformanceParameters();
+		//ArrayList GetPerformanceParameters();
 		ArrayList GetPerformanceParameters(long sportsId);
 		PerformanceParameter GetPerformanceParameter(long performanceParamterId);
 		long InsertPerformanceParameter(PerformanceParameter performanceParamter);

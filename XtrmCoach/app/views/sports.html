@@ -39,10 +39,10 @@
 		<div ng-repeat="perfParameter in perfParameters">
 			<div class="sport-item-container" ng-show="perfParameter.isEdit">
 				<div class="para-item-edit">
-					<select class="form-control" ng-init="perfParameter.perfParaName = perfParaNames[perfParameter.perfParaName.id - 1]" ng-model="perfParameter.perfParaName" ng-change="fetchPerfParaTypes(perfParameter.perfParaName.id)" ng-options="perfParaName.name for perfParaName in perfParaNames"></select>
+					<select class="form-control" ng-init="perfParameter.perfParaName = perfParaNames[perfParameter.perfParaName.id - 1]" ng-model="perfParameter.perfParaName" ng-change="fetchPerfParaTypeGroups(perfParameter.perfParaName.id)" ng-options="perfParaName.name for perfParaName in perfParaNames"></select>
 				</div>
 				<div class="para-item-edit">
-					<select class="form-control" ng-model="perfParameter.perfParaType" ng-options="perfParaType.name for perfParaType in perfParaTypes"></select>
+					<select class="form-control" ng-model="perfParameter.perfParaTypeGroup" ng-options="perfParaTypeGroup.name for perfParaTypeGroup in perfParaTypeGroups"></select>
 				</div>
 				<div class="para-item-edit">
 					<input class="form-control" type="text" ng-show="perfParameter.perfParaName.id == 5" ng-model="perfParameter.customName" placeholder="Custom Name" />
@@ -56,7 +56,7 @@
 			</div>
 			<div class="sport-item-container" ng-show="!perfParameter.isEdit">
 				<div class="para-item" ng-bind="perfParameter.perfParaName.name"></div>
-				<div class="para-item" ng-bind="perfParameter.perfParaType.name"></div>
+				<div class="para-item" ng-bind="perfParameter.perfParaTypeGroup.name"></div>
 				<div class="para-item">
 					<div ng-bind="perfParameter.customName" ng-show="perfParameter.perfParaName.id == 5"></div>
 				</div>

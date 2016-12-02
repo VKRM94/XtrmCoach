@@ -1,8 +1,7 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using XtrmCoachRESTServer;
-using XtrmCoachRESTServer.Models;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections;
+using XtrmCoachRESTServer;
 
 // Testing methods which are exposed by API
 namespace XtrmCoachRESTServerTest.RepositoryTest

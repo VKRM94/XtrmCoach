@@ -78,8 +78,8 @@
 			});
 		};
 
-		this.getPerfParaTypes = function (perfParaNameId, callback) {
-			$http.get('http://localhost:65335/api/PerformanceParameterType/' + perfParaNameId)
+		this.getPerfParaTypeGroups = function (perfParaNameId, callback) {
+			$http.get('http://localhost:65335/api/PerformanceParameterTypeGroup/' + perfParaNameId)
 			.success(function (data, status) {
 				if (status == 200) {
 					callback(data, status);

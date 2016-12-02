@@ -36,13 +36,13 @@ namespace XtrmCoachRESTServerTest
 				performanceParameter.sportId = 1;
 				performanceParameter.perfParaName = new PerformanceParameterName();
 				performanceParameter.perfParaName.id = 1;
-				performanceParameter.perfParaType = new PerformanceParameterType();
-				performanceParameter.perfParaType.id = 1;
+				performanceParameter.perfParaTypeGroup = new PerformanceParameterTypeGroup();
+				performanceParameter.perfParaTypeGroup.id = 1;
 
 				// Assert
 				Assert.AreEqual<long>(performanceParameter.sportId, 1);
 				Assert.AreEqual<long>(performanceParameter.perfParaName.id, 1);
-				Assert.AreEqual<long>(performanceParameter.perfParaType.id, 1);
+				Assert.AreEqual<long>(performanceParameter.perfParaTypeGroup.id, 1);
 			}
 			catch (Exception)
 			{

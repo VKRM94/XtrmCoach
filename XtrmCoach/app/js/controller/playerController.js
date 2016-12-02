@@ -137,21 +137,4 @@
 			});
 		};
 	}
-
-	angular
-		.module('app')
-		.filter('showAssociatedPlayer', function () {
-			return function (items, sport) {
-				var filtered = [];
-				angular.forEach(items, function (item) {
-					for (var i = 0; i < item.sports.length; i++) {
-						if (item.sports[i].id == sport.id) {
-							filtered.push(item);
-							sport.hasPlayer = true;
-						}
-					}
-				});
-				return filtered;
-			};
-		});
 })();

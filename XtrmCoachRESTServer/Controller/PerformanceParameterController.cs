@@ -45,7 +45,7 @@ namespace XtrmCoachRESTServer.Controller
 				return response;
 			}
 
-			if (performanceParameter.perfParaType.id <= 0)
+			if (performanceParameter.perfParaTypeGroup.id <= 0)
 			{
 				response = Request.CreateResponse(HttpStatusCode.PartialContent, "Invalid Type Id passed.");
 				return response;
@@ -94,7 +94,7 @@ namespace XtrmCoachRESTServer.Controller
 				return response;
 			}
 
-			if (performanceParameter.perfParaType.id <= 0)
+			if (performanceParameter.perfParaTypeGroup.id <= 0)
 			{
 				response = Request.CreateResponse(HttpStatusCode.PartialContent, "Invalid Type Id passed.");
 				return response;

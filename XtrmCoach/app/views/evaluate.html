@@ -1,4 +1,36 @@
-﻿This is Evaluate Page
+﻿<div class="evaluate-container">
+	<div class="evaluate-header">
+		<div class="evaluate-header-content">Select Sport</div>
+	</div> 
+	
+	<div ng-repeat="sport in sports">
+		<span class="evaluate-sport-item" ng-bind="sport.name" ng-click="updateSelectedSport(sport.id)" ng-class="{'evaluate-selected-sport': selectedSportId == sport.id ? true : false}"></span>
+	</div>
+
+	<div class="evaluate-header">
+		<div class="evaluate-header-content">Select Player</div>
+	</div> 
+
+	<div class="no-selection-message" ng-show="selectedSportId == 0">
+		Please Select Sport to View Players
+	</div>
+
+	<div ng-repeat="player in players | showAssociatedPlayerForEval:selectedSportId">
+		<div class="player-item">
+			<img class="player-item-image" ng-src="http://localhost:65335/api/PlayerImage?fileName={{player.imageId}}" src="http://localhost:65335/api/PlayerImage?fileName={{player.imageId}}" ng-click="updateSelectedPlayer(player.id)" ng-class="{'evaluate-selected-player': selectedPlayerId == player.id ? true : false}"/>
+			<div class="player-item-label" ng-bind="player.firstName + ' ' + player.lastName"></div>
+		</div>
+	</div>
+
+	<div class="evaluate-header">
+		<div class="evaluate-header-content">Select Performance Parameter</div>
+	</div>
+	
+	<div class="no-selection-message" ng-show="selectedPlayerId == 0">
+		Please Select Player to View Performance Parameters
+	</div> 
+</div>
+
 <!--
 <div class="player-container" ng-show="!showParameters">
 	<button class="btn btn-primary btn-player" ng-click="addNewPlayer()">Add New Player</button>

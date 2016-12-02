@@ -25,9 +25,9 @@ namespace XtrmCoachRESTServerTest.ControllerTest
 			performanceParameterObj1AsOutput.perfParaName = new PerformanceParameterName();
 			performanceParameterObj1AsOutput.perfParaName.id = 1;
 			performanceParameterObj1AsOutput.perfParaName.name = "Parameter 1";
-			performanceParameterObj1AsOutput.perfParaType = new PerformanceParameterType();
-			performanceParameterObj1AsOutput.perfParaType.id = 1;
-			performanceParameterObj1AsOutput.perfParaType.name = "Type 1";
+			performanceParameterObj1AsOutput.perfParaTypeGroup = new PerformanceParameterTypeGroup();
+			performanceParameterObj1AsOutput.perfParaTypeGroup.id = 1;
+			performanceParameterObj1AsOutput.perfParaTypeGroup.name = "Type 1";
 			performanceParameterObj1AsOutput.customName = "Custom 1";
 
 			PerformanceParameter performanceParameterObj2AsOutput = new PerformanceParameter();
@@ -35,9 +35,9 @@ namespace XtrmCoachRESTServerTest.ControllerTest
 			performanceParameterObj2AsOutput.perfParaName = new PerformanceParameterName();
 			performanceParameterObj2AsOutput.perfParaName.id = 1;
 			performanceParameterObj2AsOutput.perfParaName.name = "Parameter 1";
-			performanceParameterObj2AsOutput.perfParaType = new PerformanceParameterType();
-			performanceParameterObj2AsOutput.perfParaType.id = 1;
-			performanceParameterObj2AsOutput.perfParaType.name = "Type 1";
+			performanceParameterObj2AsOutput.perfParaTypeGroup = new PerformanceParameterTypeGroup();
+			performanceParameterObj2AsOutput.perfParaTypeGroup.id = 1;
+			performanceParameterObj2AsOutput.perfParaTypeGroup.name = "Type 1";
 			performanceParameterObj2AsOutput.customName = "Custom 1";
 
 			performanceParametersObjsAsOuptut.Add(performanceParameterObj1AsOutput);
@@ -69,9 +69,9 @@ namespace XtrmCoachRESTServerTest.ControllerTest
 			performanceParameterObjAsInput.perfParaName = new PerformanceParameterName();
 			performanceParameterObjAsInput.perfParaName.id = 1;
 			performanceParameterObjAsInput.perfParaName.name = "Parameter 1";
-			performanceParameterObjAsInput.perfParaType = new PerformanceParameterType();
-			performanceParameterObjAsInput.perfParaType.id = 1;
-			performanceParameterObjAsInput.perfParaType.name = "Type 1";
+			performanceParameterObjAsInput.perfParaTypeGroup = new PerformanceParameterTypeGroup();
+			performanceParameterObjAsInput.perfParaTypeGroup.id = 1;
+			performanceParameterObjAsInput.perfParaTypeGroup.name = "Type 1";
 			performanceParameterObjAsInput.customName = "Custom 1";
 
 			var mockRepository = new Mock<IPerformanceParameterRepository>();
@@ -123,9 +123,9 @@ namespace XtrmCoachRESTServerTest.ControllerTest
 			performanceParameterObjAsInput.perfParaName = new PerformanceParameterName();
 			performanceParameterObjAsInput.perfParaName.id = 1;
 			performanceParameterObjAsInput.perfParaName.name = "Parameter 1";
-			performanceParameterObjAsInput.perfParaType = new PerformanceParameterType();
-			performanceParameterObjAsInput.perfParaType.id = 1;
-			performanceParameterObjAsInput.perfParaType.name = "Type 1";
+			performanceParameterObjAsInput.perfParaTypeGroup = new PerformanceParameterTypeGroup();
+			performanceParameterObjAsInput.perfParaTypeGroup.id = 1;
+			performanceParameterObjAsInput.perfParaTypeGroup.name = "Type 1";
 			performanceParameterObjAsInput.customName = "Custom 1";
 
 			var mockRepository = new Mock<IPerformanceParameterRepository>();
@@ -154,9 +154,9 @@ namespace XtrmCoachRESTServerTest.ControllerTest
 			performanceParameterObjAsInput.perfParaName = new PerformanceParameterName();
 			performanceParameterObjAsInput.perfParaName.id = -1;
 			performanceParameterObjAsInput.perfParaName.name = "Parameter 1";
-			performanceParameterObjAsInput.perfParaType = new PerformanceParameterType();
-			performanceParameterObjAsInput.perfParaType.id = 1;
-			performanceParameterObjAsInput.perfParaType.name = "Type 1";
+			performanceParameterObjAsInput.perfParaTypeGroup = new PerformanceParameterTypeGroup();
+			performanceParameterObjAsInput.perfParaTypeGroup.id = 1;
+			performanceParameterObjAsInput.perfParaTypeGroup.name = "Type 1";
 			performanceParameterObjAsInput.customName = "Custom 1";
 
 			var mockRepository = new Mock<IPerformanceParameterRepository>();
@@ -185,9 +185,9 @@ namespace XtrmCoachRESTServerTest.ControllerTest
 			performanceParameterObjAsInput.perfParaName = new PerformanceParameterName();
 			performanceParameterObjAsInput.perfParaName.id = 1;
 			performanceParameterObjAsInput.perfParaName.name = "Parameter 1";
-			performanceParameterObjAsInput.perfParaType = new PerformanceParameterType();
-			performanceParameterObjAsInput.perfParaType.id = -1;
-			performanceParameterObjAsInput.perfParaType.name = "Type 1";
+			performanceParameterObjAsInput.perfParaTypeGroup = new PerformanceParameterTypeGroup();
+			performanceParameterObjAsInput.perfParaTypeGroup.id = -1;
+			performanceParameterObjAsInput.perfParaTypeGroup.name = "Type 1";
 			performanceParameterObjAsInput.customName = "Custom 1";
 
 			var mockRepository = new Mock<IPerformanceParameterRepository>();
@@ -217,9 +217,9 @@ namespace XtrmCoachRESTServerTest.ControllerTest
 			performanceParameterObjAsInput.perfParaName = new PerformanceParameterName();
 			performanceParameterObjAsInput.perfParaName.id = 1;
 			performanceParameterObjAsInput.perfParaName.name = "Parameter 1";
-			performanceParameterObjAsInput.perfParaType = new PerformanceParameterType();
-			performanceParameterObjAsInput.perfParaType.id = 1;
-			performanceParameterObjAsInput.perfParaType.name = "Type 1";
+			performanceParameterObjAsInput.perfParaTypeGroup = new PerformanceParameterTypeGroup();
+			performanceParameterObjAsInput.perfParaTypeGroup.id = 1;
+			performanceParameterObjAsInput.perfParaTypeGroup.name = "Type 1";
 			performanceParameterObjAsInput.customName = "Custom 1";
 
 			var mockRepository = new Mock<IPerformanceParameterRepository>();
@@ -272,9 +272,9 @@ namespace XtrmCoachRESTServerTest.ControllerTest
 			performanceParameterObjAsInput.perfParaName = new PerformanceParameterName();
 			performanceParameterObjAsInput.perfParaName.id = 1;
 			performanceParameterObjAsInput.perfParaName.name = "Parameter 1";
-			performanceParameterObjAsInput.perfParaType = new PerformanceParameterType();
-			performanceParameterObjAsInput.perfParaType.id = 1;
-			performanceParameterObjAsInput.perfParaType.name = "Type 1";
+			performanceParameterObjAsInput.perfParaTypeGroup = new PerformanceParameterTypeGroup();
+			performanceParameterObjAsInput.perfParaTypeGroup.id = 1;
+			performanceParameterObjAsInput.perfParaTypeGroup.name = "Type 1";
 			performanceParameterObjAsInput.customName = "Custom 1";
 
 			var mockRepository = new Mock<IPerformanceParameterRepository>();
@@ -306,9 +306,9 @@ namespace XtrmCoachRESTServerTest.ControllerTest
 			performanceParameterObjAsInput.perfParaName = new PerformanceParameterName();
 			performanceParameterObjAsInput.perfParaName.id = 1;
 			performanceParameterObjAsInput.perfParaName.name = "Parameter 1";
-			performanceParameterObjAsInput.perfParaType = new PerformanceParameterType();
-			performanceParameterObjAsInput.perfParaType.id = 1;
-			performanceParameterObjAsInput.perfParaType.name = "Type 1";
+			performanceParameterObjAsInput.perfParaTypeGroup = new PerformanceParameterTypeGroup();
+			performanceParameterObjAsInput.perfParaTypeGroup.id = 1;
+			performanceParameterObjAsInput.perfParaTypeGroup.name = "Type 1";
 			performanceParameterObjAsInput.customName = "Custom 1";
 
 			var mockRepository = new Mock<IPerformanceParameterRepository>();
@@ -340,9 +340,9 @@ namespace XtrmCoachRESTServerTest.ControllerTest
 			performanceParameterObjAsInput.perfParaName = new PerformanceParameterName();
 			performanceParameterObjAsInput.perfParaName.id = -1;
 			performanceParameterObjAsInput.perfParaName.name = "Parameter 1";
-			performanceParameterObjAsInput.perfParaType = new PerformanceParameterType();
-			performanceParameterObjAsInput.perfParaType.id = 1;
-			performanceParameterObjAsInput.perfParaType.name = "Type 1";
+			performanceParameterObjAsInput.perfParaTypeGroup = new PerformanceParameterTypeGroup();
+			performanceParameterObjAsInput.perfParaTypeGroup.id = 1;
+			performanceParameterObjAsInput.perfParaTypeGroup.name = "Type 1";
 			performanceParameterObjAsInput.customName = "Custom 1";
 
 			var mockRepository = new Mock<IPerformanceParameterRepository>();
@@ -374,9 +374,9 @@ namespace XtrmCoachRESTServerTest.ControllerTest
 			performanceParameterObjAsInput.perfParaName = new PerformanceParameterName();
 			performanceParameterObjAsInput.perfParaName.id = 1;
 			performanceParameterObjAsInput.perfParaName.name = "Parameter 1";
-			performanceParameterObjAsInput.perfParaType = new PerformanceParameterType();
-			performanceParameterObjAsInput.perfParaType.id = -1;
-			performanceParameterObjAsInput.perfParaType.name = "Type 1";
+			performanceParameterObjAsInput.perfParaTypeGroup = new PerformanceParameterTypeGroup();
+			performanceParameterObjAsInput.perfParaTypeGroup.id = -1;
+			performanceParameterObjAsInput.perfParaTypeGroup.name = "Type 1";
 			performanceParameterObjAsInput.customName = "Custom 1";
 
 			var mockRepository = new Mock<IPerformanceParameterRepository>();

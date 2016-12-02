@@ -76,6 +76,7 @@
   <ItemGroup>
     <Compile Include="ControllerTest\PerformanceParameterControllerTest.cs" />
     <Compile Include="ControllerTest\PerformanceParameterNameControllerTest.cs" />
+    <Compile Include="ControllerTest\PerformanceParameterTypeGroupControllerTest.cs" />
     <Compile Include="ControllerTest\PerformanceParameterTypeControllerTest.cs" />
     <Compile Include="ControllerTest\PlayerControllerTest.cs" />
     <Compile Include="ControllerTest\SignupControllerTest.cs" />
@@ -83,11 +84,13 @@
     <Compile Include="ControllerTest\SportControllerTest.cs" />
     <Compile Include="ModelTest\PerformanceParameterNameTest.cs" />
     <Compile Include="ModelTest\PerformanceParameterTest.cs" />
+    <Compile Include="ModelTest\PerformanceParameterTypeGroupTest.cs" />
     <Compile Include="ModelTest\PerformanceParameterTypeTest.cs" />
     <Compile Include="ModelTest\PlayerTest.cs" />
     <Compile Include="ModelTest\SportTest.cs" />
     <Compile Include="RepositoryIntegrationTest\PerformanceParameterNameRepositoryTest.cs" />
     <Compile Include="RepositoryIntegrationTest\PerformanceParameterRepositoryTest.cs" />
+    <Compile Include="RepositoryIntegrationTest\PerformanceParameterTypeGroupRepositoryTest.cs" />
     <Compile Include="RepositoryIntegrationTest\PerformanceParameterTypeRepositoryTest.cs" />
     <Compile Include="RepositoryIntegrationTest\PlayerRepositoryTest.cs" />
     <Compile Include="RepositoryIntegrationTest\SportRepositoryTest.cs" />

@@ -1,13 +1,11 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System.Collections;
-using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using XtrmCoachRESTServer.Controller;
 using XtrmCoachRESTServer.Models;
 using XtrmCoachRESTServer.RepositoryInterface;
-using XtrmCoachRESTServer.Util;
 
 namespace XtrmCoachRESTServerTest.ControllerTest
 {
@@ -22,10 +20,12 @@ namespace XtrmCoachRESTServerTest.ControllerTest
 
 			PerformanceParameterType performanceParameterTypeObj1AsOutput = new PerformanceParameterType();
 			performanceParameterTypeObj1AsOutput.id = 1;
+			performanceParameterTypeObj1AsOutput.groupId = 1;
 			performanceParameterTypeObj1AsOutput.name = "Para Type 1";
 
 			PerformanceParameterType performanceParameterTypeObj2AsOutput = new PerformanceParameterType();
 			performanceParameterTypeObj2AsOutput.id = 2;
+			performanceParameterTypeObj2AsOutput.groupId = 2;
 			performanceParameterTypeObj2AsOutput.name = "Para Type 2";
 
 			performanceParameterTypesObjsAsOuptut.Add(performanceParameterTypeObj1AsOutput);
