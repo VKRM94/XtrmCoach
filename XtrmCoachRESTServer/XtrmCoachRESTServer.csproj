@@ -123,6 +123,7 @@
     <Compile Include="Controller\PerformanceParameterNameController.cs" />
     <Compile Include="Controller\PerformanceParameterTypeGroupController.cs" />
     <Compile Include="Controller\PerformanceParameterTypeController.cs" />
+    <Compile Include="Controller\PlayerAnalysisController.cs" />
     <Compile Include="Controller\PlayerController.cs" />
     <Compile Include="Controller\PlayerEvaluationController.cs" />
     <Compile Include="Controller\PlayerImageController.cs" />
@@ -131,11 +132,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Model\highChart.cs" />
     <Compile Include="Model\PerformanceParameter.cs" />
     <Compile Include="Model\PerformanceParameterName.cs" />
     <Compile Include="Model\PerformanceParameterTypeGroup.cs" />
     <Compile Include="Model\PerformanceParameterType.cs" />
     <Compile Include="Model\Player.cs" />
+    <Compile Include="Model\PlayerAnalysis.cs" />
     <Compile Include="Model\PlayerEvaluation.cs" />
     <Compile Include="Model\Sport.cs" />
     <Compile Include="Model\User.cs" />
@@ -144,6 +147,7 @@
     <Compile Include="RepositoryInterface\IPerformanceParameterRepository.cs" />
     <Compile Include="RepositoryInterface\IPerformanceParameterTypeGroupRepository.cs" />
     <Compile Include="RepositoryInterface\IPerformanceParameterTypeRepository.cs" />
+    <Compile Include="RepositoryInterface\IPlayerAnalysisRepository.cs" />
     <Compile Include="RepositoryInterface\IPlayerEvaluationRepository.cs" />
     <Compile Include="RepositoryInterface\IPlayerRepository.cs" />
     <Compile Include="RepositoryInterface\ISportRepository.cs" />
@@ -152,6 +156,7 @@
     <Compile Include="Repository\PerformanceParameterRepository.cs" />
     <Compile Include="Repository\PerformanceParameterTypeGroupRepository.cs" />
     <Compile Include="Repository\PerformanceParameterTypeRepository.cs" />
+    <Compile Include="Repository\PlayerAnalysisRepository.cs" />
     <Compile Include="Repository\PlayerEvaluationRepository.cs" />
     <Compile Include="Repository\PlayerRespository.cs" />
     <Compile Include="Repository\SportRespository.cs" />
