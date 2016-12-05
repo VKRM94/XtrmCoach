@@ -85,6 +85,7 @@
 	font-size: 4vw;
 	margin-bottom: 4vh;
 	color: rgba(238, 238, 238, 0.9);
+	outline: none !important;
 }
 
 	.dashboard-icon:hover {

@@ -41,6 +41,7 @@
 	color: grey;
 	text-align: center;
 	background-color: whitesmoke;
+	outline: none !important;
 }
 
 .selected-item {

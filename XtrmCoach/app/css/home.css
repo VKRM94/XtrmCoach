@@ -2,6 +2,10 @@
 	height: 100%;
 }
 
+.ionicons {
+	outline: none !important;
+}
+
 .app-container {
 	height: 100%;
 }
