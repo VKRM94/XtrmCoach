@@ -81,6 +81,7 @@
 	color: grey;
 	text-align: center;
 	background-color: white;
+	outline: none !important;
 }
 
 .evaluate-item-label {
