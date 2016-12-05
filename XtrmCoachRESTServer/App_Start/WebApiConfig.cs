@@ -37,6 +37,7 @@ namespace XtrmCoachRESTServer
 			container.RegisterType<IPerformanceParameterTypeRepository, PerformanceParameterTypeRepository>(new HierarchicalLifetimeManager());
 			container.RegisterType<IPerformanceParameterTypeGroupRepository, PerformanceParameterTypeGroupRepository>(new HierarchicalLifetimeManager());
 			container.RegisterType<IPlayerRepository, PlayerRespository>(new HierarchicalLifetimeManager());
+			container.RegisterType<IPlayerEvaluationRepository, PlayerEvaluationRepository>(new HierarchicalLifetimeManager());
 			config.DependencyResolver = new UnityResolver(container);
 		}
 	}
