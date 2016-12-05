@@ -71,6 +71,7 @@
     <Content Include="app\css\player.css" />
     <Content Include="app\css\sport.css" />
     <Content Include="app\image\prod_bg.jpg" />
+    <Content Include="app\js\controller\analysisController.js" />
     <Content Include="app\js\controller\evaluateController.js" />
     <Content Include="app\js\controller\teamController.js" />
     <Content Include="app\js\controller\playerController.js" />
@@ -79,11 +80,14 @@
     <Content Include="app\js\controller\dashboardController.js" />
     <Content Include="app\js\directive\imageUploadDirective.js" />
     <Content Include="app\js\filter\customFilter.js" />
+    <Content Include="app\js\service\analysisService.js" />
     <Content Include="app\js\service\imageUploadService.js" />
+    <Content Include="app\js\service\evaluateService.js" />
     <Content Include="app\js\service\playerService.js" />
     <Content Include="app\js\service\sportService.js" />
     <Content Include="app\js\service\loginService.js" />
     <Content Include="app\js\service\signupService.js" />
+    <Content Include="app\views\analysis.html" />
     <Content Include="app\views\evaluate.html" />
     <Content Include="app\views\players.html" />
     <Content Include="app\views\signup.html" />
@@ -128,6 +132,7 @@
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\highcharts.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />

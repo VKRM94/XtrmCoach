@@ -1,15 +1,15 @@
 ﻿<div class="evaluate-container">
 	<div class="evaluate-header">
-		<div class="evaluate-header-content">Select Sport</div>
-	</div> 
-	
+		<div class="evaluate-header-content">SELECT SPORT</div>
+	</div>
+
 	<div ng-repeat="sport in sports">
-		<span class="evaluate-sport-item" ng-bind="sport.name" ng-click="updateSelectedSport(sport.id)" ng-class="{'evaluate-selected-sport': selectedSportId == sport.id ? true : false}"></span>
+		<span class="evaluate-sport-item" ng-bind="sport.name" ng-click="updateSelectedSport(sport.id)" ng-class="{'selected-item': selectedSportId == sport.id ? true : false}"></span>
 	</div>
 
 	<div class="evaluate-header">
-		<div class="evaluate-header-content">Select Player</div>
-	</div> 
+		<div class="evaluate-header-content">SELECT PLAYER</div>
+	</div>
 
 	<div class="no-selection-message" ng-show="selectedSportId == 0">
 		Please Select Sport to View Players
@@ -17,75 +17,31 @@
 
 	<div ng-repeat="player in players | showAssociatedPlayerForEval:selectedSportId">
 		<div class="player-item">
-			<img class="player-item-image" ng-src="http://localhost:65335/api/PlayerImage?fileName={{player.imageId}}" src="http://localhost:65335/api/PlayerImage?fileName={{player.imageId}}" ng-click="updateSelectedPlayer(player.id)" ng-class="{'evaluate-selected-player': selectedPlayerId == player.id ? true : false}"/>
+			<img class="player-item-image" ng-src="http://localhost:65335/api/PlayerImage?fileName={{player.imageId}}" src="http://localhost:65335/api/PlayerImage?fileName={{player.imageId}}" ng-click="updateSelectedPlayer(player.id)" ng-class="{'selected-item': selectedPlayerId == player.id ? true : false}" />
 			<div class="player-item-label" ng-bind="player.firstName + ' ' + player.lastName"></div>
 		</div>
 	</div>
 
 	<div class="evaluate-header">
-		<div class="evaluate-header-content">Select Performance Parameter</div>
+		<div class="evaluate-header-content">SELECT PERFORMANCE PARAMETER</div>
 	</div>
-	
+
 	<div class="no-selection-message" ng-show="selectedPlayerId == 0">
 		Please Select Player to View Performance Parameters
-	</div> 
-</div>
+	</div>
 
-<!--
-<div class="player-container" ng-show="!showParameters">
-	<button class="btn btn-primary btn-player" ng-click="addNewPlayer()">Add New Player</button>
-	<div ng-repeat="sport in sports" ng-init="sport.hasPlayer = false" ng-mouseenter="sport.showIcons = true" ng-mouseleave="sport.showIcons = false">
-		<div class="player-sport-header">
-			<div class="player-sport-header-content" ng-bind="sport.name"></div>
-		</div>
-
-		<div class="no-player-message" ng-if="!sport.hasPlayer">
-			No Players are associated with this sport.
-		</div>
-
-		<div ng-repeat="player in players | showAssociatedPlayer:sport">
-			<div class="player-item" ng-mouseenter="player.showIcons = true" ng-mouseleave="player.showIcons = false">
-				<img class="player-item-image" ng-src="http://localhost:65335/api/PlayerImage?fileName={{player.imageId}}" src="http://localhost:65335/api/PlayerImage?fileName={{player.imageId}}" />
-				<div class="player-item-label" ng-bind="player.firstName + ' ' + player.lastName"></div>
-				<div ng-show="player.showIcons && sport.showIcons" class="player-item-edit-delete">
-					<div class="player-item-edit-delete-buttons">
-						<div class="player-item-icon">
-							<span class="ionicons ion-edit" ng-click="editPlayer(player)"></span>
-						</div>
-						<div class="player-item-icon">
-							<span class="ionicons ion-android-delete" ng-click="deletePlayer(player)"></span>
-						</div>
-					</div>
-				</div>
-			</div>
+	<div ng-repeat="evaluation in playerEvaluations">
+		<div class="evaluate-item">
+			<span class="evaluate-item-image" ng-bind="evaluation.perfParaName.name != 'Custom' ? evaluation.perfParaName.name : evaluation.customName" ng-click="updateSelectedEvaluationParameter(evaluation)" ng-class="{'selected-item': selectedEvaluationParameter.id == evaluation.id ? true : false}"></span>
+			<div class="evaluate-item-label" ng-bind="evaluation.selectedType.id != null ? 'Evaluated' : 'Yet to Evaluate'"></div>
 		</div>
 	</div>
 
-	<div class="add-edit-player-container" ng-hide="!isPlayerAddOrEditInProgress">
-		<div class="add-edit-player-dialog">
-			<div class="add-edit-player-header" ng-bind="currentPlayer.id == 0 ? 'Add New Player' : 'Update Player'"></div>
-			<div class="add-edit-player-body">
-				<div class="add-edit-player-image-section">
-					<img class="add-edit-player-image" ng-src="{{currentPlayerImageSource}}" src="{{currentPlayerImageSource}}">
-					<input type="file" id="selectedFile" style="display: none;" file-model="currentPlayer.image" />
-					<button class="form-control btn btn-default" onclick="document.getElementById('selectedFile').click();">Browse</button>
-				</div>
-				<div class="add-edit-player-details-section">
-					<input type="text" class="form-control margin-bottom-1vh" placeholder="First Name" ng-model="currentPlayer.firstName" />
-					<input type="text" class="form-control margin-bottom-1vh" placeholder="Last Name" ng-model="currentPlayer.lastName" />
-					<input type="text" class="form-control margin-bottom-1vh " placeholder="Date of Birth (mm/dd/yyyy)" ng-model="currentPlayer.dob" />
-					<div ng-dropdown-multiselect="" class="add-edit-player-details-item" options="sports" selected-model="currentPlayer.sports" extra-settings="dropDownSettings"></div>
-				</div>
-			</div>
-			<div class="add-edit-player-footer">
-				<div class="add-edit-player-footer-ok">
-					<button class="form-control btn btn-default" ng-click="addOrUpdatePlayer()" ng-bind="currentPlayer.id == 0 ? 'Add' : 'Update'"></button>
-				</div>
-				<div class="add-edit-player-footer-cancel">
-					<button class="form-control btn btn-default" ng-click="cancelAddOrUpdatePlayer()">Cancel</button>
-				</div>
-			</div>
+	<div ng-show="selectedEvaluationParameter != null && (selectedEvaluationParameter.selectedType.id == null || selectedEvaluationParameter.value == null)" class="evaluate-performance">
+		<div class="evaluate-input">
+			<input ng-if="selectedEvaluationParameter.perfParaTypes.length == 1" type="text" ng-model="selectedEvaluationParameter.value" class="form-control" placeholder="{{selectedEvaluationParameter.perfParaTypes[0].name}}" />
+			<select ng-if="selectedEvaluationParameter.perfParaTypes.length > 1" class="form-control" ng-options="item.name for item in selectedEvaluationParameter.perfParaTypes" ng-model="selectedEvaluationParameter.selectedType"></select>
 		</div>
+		<button class="btn btn-primary btn-evaluate" ng-click="evaluate()">Submit Evaluation</button>
 	</div>
 </div>
--->

@@ -1,0 +1,52 @@
+﻿<div class="analysis-container" ng-show="isGraphMode != true">
+	<div class="evaluate-header">
+		<div class="evaluate-header-content">SELECT SPORT</div>
+	</div>
+
+	<div ng-repeat="sport in sports">
+		<span class="evaluate-sport-item" ng-bind="sport.name" ng-click="updateSelectedSport(sport)" ng-class="{'selected-item': selectedSport.id == sport.id ? true : false}"></span>
+	</div>
+
+	<div class="evaluate-header">
+		<div class="evaluate-header-content">SELECT PLAYER(S)</div>
+	</div>
+
+	<div class="no-selection-message" ng-show="selectedSport == null">
+		Please Select Sport to View Players
+	</div>
+
+	<div ng-repeat="player in players | showAssociatedPlayerForEval:selectedSport.id">
+		<div class="player-item">
+			<img class="player-item-image" ng-src="http://localhost:65335/api/PlayerImage?fileName={{player.imageId}}" src="http://localhost:65335/api/PlayerImage?fileName={{player.imageId}}" ng-click="player.isSelected ? player.isSelected = false : player.isSelected = true" ng-class="{'selected-item': player.isSelected}" />
+			<div class="player-item-label" ng-bind="player.firstName + ' ' + player.lastName"></div>
+		</div>
+	</div>
+
+	<div class="evaluate-header">
+		<div class="evaluate-header-content">SELECT PERFORMANCE PARAMETER</div>
+	</div>
+
+	<div class="no-selection-message" ng-show="selectedSport == null">
+		Please Select Sport to View Performance Parameters
+	</div>
+
+	<div ng-repeat="perfPara in perfParameters">
+		<span class="evaluate-sport-item" ng-bind="perfPara.perfParaName.name != 'Custom' ? perfPara.perfParaName.name : perfPara.customName" ng-click="updateSelectedEvaluationParameter(perfPara)" ng-class="{'selected-item': selectedEvaluationParameter.id == perfPara.id ? true : false}"></span>
+	</div>
+
+	<div ng-show="selectedEvaluationParameter != null" class="analyze-performance">
+		<button class="btn btn-primary btn-analyze" ng-click="analyze()">Show Analysis</button>
+	</div>
+</div>
+
+<div class="analysis-container" ng-show="isGraphMode == true">
+	<div class="analysis-high-chart-container">
+		<div id="analysis-high-chart-container" class="analysis-chart"></div>
+	</div>
+	<div class="analysis-time-range-container" id="analysis-high-chart-container">
+		<button class="form-control btn btn-primary btn-time-range" ng-click="updateTimeRange('LAST1WEEK')">Last 1 Week</button>
+		<button class="form-control btn btn-primary btn-time-range" ng-click="updateTimeRange('LAST1MONTH')">Last 1 Month</button>
+		<button class="form-control btn btn-primary btn-time-range" ng-click="updateTimeRange('LAST3MONTHS')">Last 3 Months</button>
+		<button class="form-control btn btn-primary btn-time-range" ng-click="updateTimeRange('LAST6MONTHS')">Last 6 Months</button>
+	</div>
+</div>

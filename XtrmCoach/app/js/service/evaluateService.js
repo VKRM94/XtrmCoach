@@ -1,8 +1,8 @@
 ﻿(function () {
 	'use strict';
 	angular.module('app')
-	.service('playerService', ['$http', function ($http) {
-		var playerService = this;
+	.service('evaluateService', ['$http', function ($http) {
+		var EvaluateService = this;
 		var userId = 0;
 		var config = {
 			headers: {
@@ -10,16 +10,10 @@
 			}
 		};
 
-		this.getPlayers = function (userId, callback) {
+		this.getPlayerEvaluations = function (sportId, playerId, callback) {
 			userId = userId;
-			$http.get('http://localhost:65335/api/Player/' + userId)
+			$http.get('http://localhost:65335/api/PlayerEvaluation?sportId=' + sportId + '&playerId=' + playerId)
 			.success(function (data, status) {
-				if (data != null) {
-					for (var i = 0; i < data.length; i++) {
-						data[i].isEdit = false;
-					}
-				}
-
 				callback(data, status);
 			})
 			.error(function (data, status) {
@@ -27,8 +21,8 @@
 			});
 		};
 
-		this.addNewPlayer = function (player, callback) {
-			$http.post('http://localhost:65335/api/Player/', player, config)
+		this.addPlayerEvaluation = function (evaluation, callback) {
+			$http.post('http://localhost:65335/api/PlayerEvaluation/', evaluation, config)
 			.success(function (response, status) {
 				callback(status);
 			})
@@ -37,8 +31,8 @@
 			});
 		};
 
-		this.updatePlayer = function (player, callback) {
-			$http.put('http://localhost:65335/api/Player/', player, config)
+		this.updatePlayerEvaluation = function (evaluation, callback) {
+			$http.put('http://localhost:65335/api/PlayerEvaluation/', evaluation, config)
 			.success(function (response, status) {
 				callback(status);
 			})
@@ -47,8 +41,8 @@
 			});
 		};
 
-		this.deletePlayer = function (playerId, callback) {
-			$http.delete('http://localhost:65335/api/Player/' + playerId, config)
+		this.deletePlayerEvaluation = function (evaluation, callback) {
+			$http.delete('http://localhost:65335/api/PlayerEvaluation/' + evaluation.id, config)
 			.success(function (response, status) {
 				callback(status);
 			})

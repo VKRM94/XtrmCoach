@@ -26,10 +26,10 @@
 				}
 			}
 		})
-		.state('dashboard.dashboard', {
-			url: '/dashboard',
-			controller: 'dashboardController',
-			templateUrl: 'app/views/dashboard.html'
+		.state('dashboard.analysis', {
+			url: '/analysis',
+			controller: 'analysisController',
+			templateUrl: 'app/views/analysis.html'
 		})
 		.state('dashboard.sports', {
 			url: '/sports',

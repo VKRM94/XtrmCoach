@@ -4,22 +4,27 @@
 		.module('app')
 		.controller('dashboardController', dashboardController);
 
-	function dashboardController($scope, $location, $rootScope, $cookieStore, $state, $stateParams) {
+	function dashboardController($scope, $rootScope, $cookieStore, $state) {
 		$rootScope.bodyLayout = 'dashboard-body';
 		$rootScope.masterHeaderTitle = 'Dashboard';
 
-		if ($state.current.name == 'dashboard') {
-			$scope.selectedOption = 'dashboard';
+		if ($state.current.name == 'dashboard.analysis') {
+			$scope.selectedOption = 'analysis';
 		} else if ($state.current.name == 'dashboard.sports') {
 			$scope.selectedOption = 'sport';
 		} else if ($state.current.name == 'dashboard.players') {
 			$scope.selectedOption = 'player';
 		}
 
-		$scope.goToDashboard = function () {
-			$rootScope.showDashboardLoader = false;
+		$scope.goToDashboardAnalysis = function () {
+			$rootScope.showDashboardLoader = true;
 			$rootScope.masterHeaderTitle = 'Dashboard';
-			$state.go('dashboard');
+
+			if ($state.current.name == 'dashboard.analysis') {
+				$state.reload();
+			} else {
+				$state.go('dashboard.analysis');
+			}
 		};
 
 		$scope.goToSport = function () {
@@ -38,7 +43,12 @@
 
 		$scope.goToEvaluate = function () {
 			$rootScope.showDashboardLoader = true;
-			$state.go('dashboard.evaluate');
+
+			if ($state.current.name == 'dashboard.evaluate') {
+				$state.reload();
+			} else {
+				$state.go('dashboard.evaluate');
+			}
 		};
 
 		$scope.logout = function () {
@@ -49,5 +59,9 @@
 
 			$state.go('home');
 		};
+
+		if ($state.current.name == 'dashboard') {
+			$scope.goToEvaluate();
+		}
 	}
 })();
