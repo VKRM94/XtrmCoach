@@ -58,8 +58,9 @@ namespace XtrmCoachRESTServerTest
 
 				playerAnalysis.timeRange = "LAST1WEEK";
 
-				playerAnalysis.fromTime = DateTime.Now.AddDays(-1);
-				playerAnalysis.toTime = DateTime.Now;
+				DateTime time = DateTime.Now;
+				playerAnalysis.fromTime = time;
+				playerAnalysis.toTime = time;
 
 				// Assert
 				Assert.AreEqual<long>(playerAnalysis.sport.id, 1);
@@ -76,10 +77,10 @@ namespace XtrmCoachRESTServerTest
 				Assert.AreEqual<long>(playerAnalysis.perfPara.sportId, 1);
 				Assert.AreEqual<string>(playerAnalysis.perfPara.customName, "custom name");
 				Assert.AreEqual<string>(playerAnalysis.timeRange, "LAST1WEEK");
-				Assert.AreEqual<DateTime>(playerAnalysis.fromTime, DateTime.Now.AddDays(-1));
-				Assert.AreEqual<DateTime>(playerAnalysis.toTime, DateTime.Now);
+				Assert.AreEqual<DateTime>(playerAnalysis.fromTime, time);
+				Assert.AreEqual<DateTime>(playerAnalysis.toTime, time);
 			}
-			catch (Exception)
+			catch (Exception ex)
 			{
 				throw new AssertFailedException("Setting PerformanceParameterAnalysis properties failed.");
 			}

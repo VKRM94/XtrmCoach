@@ -91,6 +91,7 @@
     <Compile Include="ModelTest\PlayerAnalysisTest.cs" />
     <Compile Include="ModelTest\PlayerEvaluationTest.cs" />
     <Compile Include="ModelTest\PlayerTest.cs" />
+    <Compile Include="ModelTest\HighChartTest.cs" />
     <Compile Include="ModelTest\SportTest.cs" />
     <Compile Include="RepositoryIntegrationTest\PerformanceParameterNameRepositoryTest.cs" />
     <Compile Include="RepositoryIntegrationTest\PerformanceParameterRepositoryTest.cs" />
