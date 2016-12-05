@@ -4,7 +4,7 @@
 		.module('app')
 		.controller('playerController', playerController);
 
-	function playerController($scope, $location, $rootScope, $cookieStore, $state, sportService, playerService, imageUploadService) {
+	function playerController($scope, $location, $rootScope, $cookieStore, $state, $mdDialog, sportService, playerService, imageUploadService) {
 		$rootScope.bodyLayout = 'dashboard-body';
 		$rootScope.masterHeaderTitle = 'Players';
 		$scope.currentPlayerImageSource = '';
@@ -87,9 +87,6 @@
 				playerService.updatePlayer($scope.currentPlayer, function (status) {
 					if (status == 200) {
 						if ($scope.currentPlayer.image != '') {
-							//var imageId = $scope.currentPlayer.firstName + $scope.currentPlayer.lastName + Math.floor((Math.random() * 1000000) + 1) + $scope.currentPlayer.image.name.substring($scope.currentPlayer.image.name.lastIndexOf("."));
-							//$scope.currentPlayer.imageId = imageId;
-
 							imageUploadService.upload($scope.currentPlayer.image, $scope.currentPlayer.imageId, function (status) {
 								if (status == 200) {
 									// UPLOAD DONE, FETCH NEW IMAGE
@@ -129,12 +126,31 @@
 			$scope.isPlayerAddOrEditInProgress = true;
 		};
 
-		$scope.deletePlayer = function (player) {
-			playerService.deletePlayer(player.id, function (status) {
-				if (status == 200) {
-					getPlayers();
-				}
-			});
+		$scope.deletePlayer = function (player, ev) {
+			if (player.sports.length > 1) {
+				// Appending dialog to document.body to cover sidenav in docs app
+				var confirm = $mdDialog.confirm()
+					  .title('Would you like to delete your player?')
+					  .textContent('Player is associated with multiple sports. Deleting a player would remove player from all sports.')
+					  .ariaLabel('Lucky day')
+					  .targetEvent(ev)
+					  .ok('Delete!')
+					  .cancel('Cancel');
+
+				$mdDialog.show(confirm).then(function () {
+					playerService.deletePlayer(player.id, function (status) {
+						if (status == 200) {
+							getPlayers();
+						}
+					});
+				});
+			} else {
+				playerService.deletePlayer(player.id, function (status) {
+					if (status == 200) {
+						getPlayers();
+					}
+				});
+			}
 		};
 	}
 })();

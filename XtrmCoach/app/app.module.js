@@ -1,6 +1,6 @@
 ﻿(function () {
 	'use strict';
-	var app = angular.module('app', ['ngCookies', 'ui.router', 'angularjs-dropdown-multiselect']);
+	var app = angular.module('app', ['ngCookies', 'ui.router', 'angularjs-dropdown-multiselect', 'ngMaterial', 'ngMessages']);
 
 	app.config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
 		$stateProvider

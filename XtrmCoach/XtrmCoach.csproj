@@ -95,6 +95,13 @@
     <Content Include="app\views\home.html" />
     <Content Include="app\views\sports.html" />
     <Content Include="app\views\teams.html" />
+    <Content Include="Content\angular-material.css" />
+    <Content Include="Content\angular-material.layout-attributes.css" />
+    <Content Include="Content\angular-material.layouts.css" />
+    <Content Include="Scripts\angular-animate.min.js" />
+    <Content Include="Scripts\angular-aria.min.js" />
+    <Content Include="Scripts\angular-material.min.js" />
+    <Content Include="Scripts\angular-messages.min.js" />
     <Content Include="Scripts\angularjs-dropdown-multiselect.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
