@@ -56,7 +56,7 @@
 	height: 100%;
 	width: 8%;
 	float: left;
-	padding-top: 15px;
+	padding-top: 10px;
 	text-align: center;
 }
 
@@ -70,7 +70,7 @@
 	height: 100%;
 	width: 92%;
 	float: left;
-	padding: 15px 15px 15px 0;
+	padding: 10px 15px 15px 0;
 }
 
 .master-content {
@@ -132,7 +132,7 @@
 	width: 100%;
 	height: 100%;
 	max-width: 1350px;
-	max-height: 700px;
+	max-height: 690px;
 	overflow: hidden;
 }
 

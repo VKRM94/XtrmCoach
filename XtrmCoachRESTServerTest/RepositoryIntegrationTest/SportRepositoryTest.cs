@@ -70,7 +70,7 @@ namespace XtrmCoachRESTServerTest.RepositoryTest
 
 				// Act
 				long sportId = sportRepository.InsertSport(sportToSave);
-				ArrayList sportsFromDb = sportRepository.GetSports();
+				ArrayList sportsFromDb = sportRepository.GetSports(1);
 
 				// Assert
 				Assert.IsTrue(sportsFromDb.Count > 0);

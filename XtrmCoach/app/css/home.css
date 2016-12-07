@@ -19,11 +19,15 @@
 .title {
 	font-family: 'Allerta Stencil', sans-serif;
 	font-size: 50px !important;
-	margin: 20px 0 0 0;
+	padding: 20px 0 0 0;
 }
 
 .login-container {
 	margin-top: 180px;
+}
+
+.login-container .btn-primary[disabled] {
+	color: black;
 }
 
 .signup-container {

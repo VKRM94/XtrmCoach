@@ -97,6 +97,7 @@
     <Compile Include="RepositoryIntegrationTest\PerformanceParameterRepositoryTest.cs" />
     <Compile Include="RepositoryIntegrationTest\PerformanceParameterTypeGroupRepositoryTest.cs" />
     <Compile Include="RepositoryIntegrationTest\PerformanceParameterTypeRepositoryTest.cs" />
+    <Compile Include="RepositoryIntegrationTest\PlayerAnalysisRepositoryTest.cs" />
     <Compile Include="RepositoryIntegrationTest\PlayerEvaluationRepositoryTest.cs" />
     <Compile Include="RepositoryIntegrationTest\PlayerRepositoryTest.cs" />
     <Compile Include="RepositoryIntegrationTest\SportRepositoryTest.cs" />

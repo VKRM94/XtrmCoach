@@ -25,10 +25,11 @@ namespace XtrmCoachRESTServer
 			}
 		}
 
-		public ArrayList GetSports()
+		public ArrayList GetSports(long userId)
 		{
-			String sqlStr = "SELECT * FROM sport";
+			String sqlStr = "SELECT * FROM sport where user_id = @userId";
 			MySqlCommand cmd = new MySqlCommand(sqlStr, conn);
+			cmd.Parameters.AddWithValue("userId", userId);
 			MySqlDataReader sqlReader = cmd.ExecuteReader();
 			ArrayList sports = new ArrayList();
 

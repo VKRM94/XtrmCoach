@@ -41,13 +41,13 @@
 				<div class="add-edit-player-details-section">
 					<input type="text" class="form-control margin-bottom-1vh" placeholder="First Name" ng-model="currentPlayer.firstName" />
 					<input type="text" class="form-control margin-bottom-1vh" placeholder="Last Name" ng-model="currentPlayer.lastName" />
-					<input type="text" class="form-control margin-bottom-1vh " placeholder="Date of Birth (mm/dd/yyyy)" ng-model="currentPlayer.dob" />
+					<input type="text" class="form-control margin-bottom-1vh " placeholder="Date of Birth (yyyy-mm-dd)" ng-model="currentPlayer.dob" />
 					<div ng-dropdown-multiselect="" class="add-edit-player-details-item" options="sports" selected-model="currentPlayer.sports" extra-settings="dropDownSettings"></div>
 				</div>
 			</div>
 			<div class="add-edit-player-footer">
 				<div class="add-edit-player-footer-ok">
-					<button class="form-control btn btn-default" ng-click="addOrUpdatePlayer()" ng-bind="currentPlayer.id == 0 ? 'Add' : 'Update'"></button>
+					<button class="form-control btn btn-default" ng-disabled="currentPlayer.firstName == '' || currentPlayer.lastName == '' || currentPlayer.dob == '' || currentPlayer.sports.length == 0" ng-click="addOrUpdatePlayer()" ng-bind="currentPlayer.id == 0 ? 'Add' : 'Update'"></button>
 				</div>
 				<div class="add-edit-player-footer-cancel">
 					<button class="form-control btn btn-default" ng-click="cancelAddOrUpdatePlayer()">Cancel</button>

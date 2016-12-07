@@ -153,3 +153,25 @@ CREATE TABLE sport_player_link (
 INSERT INTO sport_player_link (sport_id, player_id) VALUES (1, 1);
 INSERT INTO sport_player_link (sport_id, player_id) VALUES (1, 2);
 INSERT INTO sport_player_link (sport_id, player_id) VALUES (2, 2);
+
+CREATE TABLE player_eval (
+	id					INT				PRIMARY KEY		AUTO_INCREMENT				,
+	sport_id			INT													NOT NULL,
+	player_id			INT													NOT NULL,
+	name_id				INT													NOT NULL,
+	type_id				INT													NOT NULL,
+	value				VARCHAR(255)												,
+	eval_date			DATE												NOT NULL,
+	CONSTRAINT	player_eval_fk_sport
+	FOREIGN KEY	(sport_id)
+	REFERENCES	sport(id),
+	CONSTRAINT	player_eval_fk_player
+	FOREIGN KEY	(player_id)
+	REFERENCES	player(id),
+	CONSTRAINT	player_eval_fk_perf_para_name
+	FOREIGN KEY	(name_id)
+	REFERENCES	perf_para_name(id),
+	CONSTRAINT	player_eval_fk_perf_para_type
+	FOREIGN KEY	(type_id)
+	REFERENCES	perf_para_type(id)
+);

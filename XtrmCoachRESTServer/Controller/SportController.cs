@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 using XtrmCoachRESTServer.Models;
 using XtrmCoachRESTServer.RepositoryInterface;
@@ -19,7 +20,18 @@ namespace XtrmCoachRESTServer.Controller
 		// GET: api/Sport
 		public ArrayList Get()
 		{
-			return _iSportRepository.GetSports();
+			long userId = 0;
+
+			long.TryParse(HttpContext.Current.Request.QueryString.GetValues("userId")[0], out userId);
+
+			if (userId== 0)
+			{
+				return null;
+			}
+			else
+			{
+				return _iSportRepository.GetSports(userId);
+			}
 		}
 
 		// GET: api/Sport/5

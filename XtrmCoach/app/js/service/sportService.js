@@ -1,7 +1,7 @@
 ﻿(function () {
 	'use strict';
 	angular.module('app')
-	.service('sportService', ['$http', function ($http) {
+	.service('sportService', ['$rootScope', '$http', function ($rootScope, $http) {
 		var sportService = this;
 		var config = {
 			headers: {
@@ -10,7 +10,7 @@
 		};
 
 		this.getSports = function (callback) {
-			$http.get('http://localhost:65335/api/Sport/')
+			$http.get('http://localhost:65335/api/Sport?userId=' + $rootScope.user.id)
 			.success(function (data, status) {
 				if (data != null) {
 					for (var i = 0; i < data.length; i++) {

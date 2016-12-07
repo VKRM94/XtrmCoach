@@ -19,7 +19,7 @@
 				lastName: '',
 				dob: '',
 				imageId: '',
-				image: {},
+				image: '',
 				sports: []
 			};
 		};

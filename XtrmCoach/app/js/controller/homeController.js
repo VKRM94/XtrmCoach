@@ -30,12 +30,13 @@
 						$rootScope.isLoggedIn = true;
 						$cookieStore.put('isLoggedIn', $rootScope.isLoggedIn);
 
-						$rootScope.showLoader = false;
 						$state.go('dashboard');
 					} else {
 						$scope.error = response;
 						$scope.isInValidCredentials = true;
 					}
+
+					$rootScope.showLoader = false;
 				});
 			};
 

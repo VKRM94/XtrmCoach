@@ -5,7 +5,7 @@ namespace XtrmCoachRESTServer.RepositoryInterface
 {
 	public interface ISportRepository
 	{
-		ArrayList GetSports();
+		ArrayList GetSports(long userId);
 		Sport GetSport(long sportId);
 		long InsertSport(Sport sport);
 		bool DeleteSport(long sportId);

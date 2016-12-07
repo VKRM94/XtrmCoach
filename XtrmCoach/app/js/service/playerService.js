@@ -17,6 +17,10 @@
 				if (data != null) {
 					for (var i = 0; i < data.length; i++) {
 						data[i].isEdit = false;
+
+						if (data[i].dob != null && data[i].dob != '') {
+							data[i].dob = data[i].dob.split('T')[0]
+						}
 					}
 				}
 
