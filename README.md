@@ -1,4 +1,4 @@
-Project Name: XtrmCoach
+# XtrmCoach
 
 Duration: Sep 2017 - Dec 2017
 
