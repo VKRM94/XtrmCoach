@@ -1,16 +1,16 @@
 # XtrmCoach
 
-Duration: Sep 2017 - Dec 2017
+__Duration__: Sep 2017 - Dec 2017
 
-Description: XtrmCoach is a web application which allows a coach of a sport(s) team to evaluate and analyze the performance of his/her players. Evaluation is conducted against predefined or custom performance parameters. The application displays analysis of one or more player in the form of chart.
+__Description__: XtrmCoach is a web application which allows a coach of a sport(s) team to evaluate and analyze the performance of his/her players. Evaluation is conducted against predefined or custom performance parameters. The application displays analysis of one or more player in the form of chart.
 
-Course: Software System Design and Implementation (Fall 2016)
+__Course__: Software System Design and Implementation (Fall 2016)
 
-Technologies: AngularJS, Bootstrap, C#, MySQL
+__Technologies__: AngularJS, Bootstrap, C#, MySQL
 
-Role: Software Developer
+__Role__: Software Developer
 
-Responsibilities:
+__Responsibilities__:
 
 • To come up with a product idea, identify it's scope and objective.
 
@@ -23,4 +23,4 @@ Responsibilities:
 • Demonstration of application.
 
 
-Contributors: Atul Banwar, Urmil Maru, Varun Krishnan
+__Contributors__: Atul Banwar, Urmil Maru, Varun Krishnan
